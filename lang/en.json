@@ -6,13 +6,15 @@
   "a11y": {
     "skip": "Skip to content"
   },
-  "brand": "Francisco Piñero Alpañés",
+  "brand": {
+    "short": "Fran Piñero"
+  },
   "nav": {
     "label": "Sections",
     "trajectory": "Trajectory",
-    "work": "Work",
     "skills": "Skills",
-    "contact": "Contact"
+    "about": "About me",
+    "cta": "Get in touch!"
   },
   "lang": {
     "label": "Language"
@@ -25,12 +27,12 @@
     "title": "Trajectory",
     "lead": "Three stages. Choose one to see what I did and how it leads to what I want next.",
     "consultora": {
-      "tab": "2018–2023 · Consultancy",
+      "tab": "2018-2023 · Consultancy",
       "heading": "Web developer — Posiziona TI (Villena)",
       "body": "Management apps (Laravel and Vue), e-commerce (PrestaShop and WordPress), admin UI, databases, and Docker. BSc in Computer Engineering (University of Alicante, Software Engineering); final project Coffizine, interactive web form generation."
     },
     "transformacion": {
-      "tab": "2023–2026 · Digital transformation",
+      "tab": "2023-2026 · Digital transformation",
       "heading": "Digital Transformation Developer — Grupo Necomplus / ASEE",
       "body": "Shipped generative-AI solutions (automation and conversational assistance), internal tools, corporate frontends, API integration, Azure, Docker, and CI/CD. Mostly remote, already based in Alicante."
     },
@@ -71,7 +73,7 @@
   },
   "contact": {
     "title": "Contact",
-    "lead": "Email is the main path."
+    "location": "Alicante, Spain"
   },
   "footer": {
     "copy": "©",

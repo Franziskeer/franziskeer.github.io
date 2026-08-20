@@ -68,7 +68,7 @@ Idioma de trabajo: **español**, pero el resultado de código debe estar localiz
 - Hero full-bleed cuando haya imagen dominante; sin overlays tipo badges/chips
 - Cards solo si hacen falta para interacción; no en el hero
 - Una sección = un propósito + un titular + una frase de apoyo
-- Movimiento con intención (2–3 gestos), no ruido
+- Movimiento con intención (2-3 gestos), no ruido
 - Definir variables CSS y una dirección visual clara
 
 La plantilla actual es un punto de partida técnico (GitHub Pages), **no** la dirección creativa final.

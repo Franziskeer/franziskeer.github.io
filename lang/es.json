@@ -6,13 +6,15 @@
   "a11y": {
     "skip": "Saltar al contenido"
   },
-  "brand": "Francisco Piñero Alpañés",
+  "brand": {
+    "short": "Fran Piñero"
+  },
   "nav": {
     "label": "Secciones",
     "trajectory": "Trayectoria",
-    "work": "Trabajo",
     "skills": "Aptitudes",
-    "contact": "Contacto"
+    "about": "Sobre mí",
+    "cta": "¡Hablemos!"
   },
   "lang": {
     "label": "Idioma"
@@ -25,12 +27,12 @@
     "title": "Trayectoria",
     "lead": "Tres etapas. Elige una para ver qué hice y cómo encaja con lo que busco ahora.",
     "consultora": {
-      "tab": "2018–2023 · Consultora",
+      "tab": "2018-2023 · Consultora",
       "heading": "Desarrollador web — Posiziona TI (Villena)",
       "body": "Apps de gestión (Laravel y Vue), e-commerce (PrestaShop y WordPress), interfaces de paneles de administración, bases de datos y Docker. Grado en Ingeniería Informática (Universidad de Alicante, especialidad Ingeniería del Software); TFG Coffizine, generación interactiva de formularios web."
     },
     "transformacion": {
-      "tab": "2023–2026 · Transformación digital",
+      "tab": "2023-2026 · Transformación digital",
       "heading": "Desarrollador de Transformación Digital — Grupo Necomplus / ASEE",
       "body": "Implantación de soluciones con IA generativa (automatización y asistencia conversacional), herramientas internas, frontends corporativos, integración de APIs, Azure, Docker y CI/CD. Trabajo principalmente remoto, ya en Alicante."
     },
@@ -71,7 +73,7 @@
   },
   "contact": {
     "title": "Contacto",
-    "lead": "El camino principal es el correo."
+    "location": "Alicante, España"
   },
   "footer": {
     "copy": "©",
