@@ -77,7 +77,7 @@ async function loadCatalogs() {
         throw new Error(`No se pudo cargar lang/${lang}.json`);
       }
       return [lang, await response.json()];
-    })
+    }),
   );
 
   entries.forEach(([lang, dict]) => {
@@ -96,65 +96,9 @@ async function initLang() {
   });
 }
 
-function showStage(stage) {
-  const tabs = document.querySelectorAll('[role="tab"][data-stage]');
-  const panels = document.querySelectorAll("[data-stage-panel]");
-
-  tabs.forEach((tab) => {
-    const selected = tab.getAttribute("data-stage") === stage;
-    tab.setAttribute("aria-selected", String(selected));
-    tab.tabIndex = selected ? 0 : -1;
-  });
-
-  panels.forEach((panel) => {
-    const match = panel.getAttribute("data-stage-panel") === stage;
-    panel.hidden = !match;
-  });
-}
-
-function initTimeline() {
-  const root = document.querySelector("[data-timeline]");
-  if (!root) {
-    return;
-  }
-
-  const tabs = [...root.querySelectorAll('[role="tab"][data-stage]')];
-
-  tabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
-      showStage(tab.getAttribute("data-stage"));
-    });
-
-    tab.addEventListener("keydown", (event) => {
-      const current = tabs.indexOf(tab);
-      if (current < 0) {
-        return;
-      }
-
-      let next = current;
-      if (event.key === "ArrowRight" || event.key === "ArrowDown") {
-        next = (current + 1) % tabs.length;
-      } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
-        next = (current - 1 + tabs.length) % tabs.length;
-      } else if (event.key === "Home") {
-        next = 0;
-      } else if (event.key === "End") {
-        next = tabs.length - 1;
-      } else {
-        return;
-      }
-
-      event.preventDefault();
-      tabs[next].focus();
-      showStage(tabs[next].getAttribute("data-stage"));
-    });
-  });
-}
-
 const year = document.getElementById("year");
 if (year) {
   year.textContent = String(new Date().getFullYear());
 }
 
 initLang();
-initTimeline();

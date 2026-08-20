@@ -7,47 +7,51 @@
     "skip": "Skip to content"
   },
   "brand": {
-    "short": "Fran Piñero"
+    "short": "Fran Piñero",
+    "full": "Francisco Piñero Alpañés"
   },
   "nav": {
     "label": "Sections",
-    "trajectory": "Trajectory",
-    "skills": "Skills",
-    "about": "About me",
-    "cta": "Get in touch!"
+    "trajectory": "Path",
+    "work": "Work",
+    "skills": "Craft",
+    "cta": "Contact"
   },
   "lang": {
     "label": "Language"
   },
   "identity": {
-    "lead": "Digital transformation developer. I am looking for a similar role, with more weight on interface design and UX, room to try new technology, and a team with a strong technical base.",
-    "location": "I live in Alicante (originally from Villena). Remote if the role is not in Alicante; hybrid if it is."
+    "role": "Software Engineer",
+    "kicker": "Digital transformation and interfaces",
+    "lead": "I ship AI solutions that make daily work clearer to use. I want a similar role: more weight on interface and UX, room to experiment, and a team with a strong technical base.",
+    "place": "Alicante. Remote, or hybrid if the team is here."
   },
   "trajectory": {
-    "title": "Trajectory",
-    "lead": "Three stages. Choose one to see what I did and how it leads to what I want next.",
+    "title": "Path",
+    "lead": "Three stretches of the same career. Not a change of trade: a change of scale.",
     "consultora": {
-      "tab": "2018-2023 · Consultancy",
-      "heading": "Web developer — Posiziona TI (Villena)",
-      "body": "Management apps (Laravel and Vue), e-commerce (PrestaShop and WordPress), admin UI, databases, and Docker. BSc in Computer Engineering (University of Alicante, Software Engineering); final project Coffizine, interactive web form generation."
+      "place": "Villena · consultancy",
+      "heading": "Web development in a small shop",
+      "body": "Five years of real product: management apps, e-commerce, admin UI. Laravel, Vue, Docker, databases. Alongside that, a BSc in Computer Engineering (University of Alicante, Software Engineering) and Coffizine, the final project: web forms generated with the people who use them."
     },
     "transformacion": {
-      "tab": "2023-2026 · Digital transformation",
-      "heading": "Digital Transformation Developer — Grupo Necomplus / ASEE",
-      "body": "Shipped generative-AI solutions (automation and conversational assistance), internal tools, corporate frontends, API integration, Azure, Docker, and CI/CD. Mostly remote, already based in Alicante."
+      "place": "Alicante · remote",
+      "heading": "Digital transformation, with AI in the middle",
+      "body": "I moved to shipping generative-AI solutions — conversational assistance, automation — and building the internal tools and frontends that make them usable. Azure, Docker, CI/CD, APIs. The work was mostly remote; I was already in Alicante."
     },
     "ahora": {
-      "tab": "Now",
-      "heading": "Next step",
-      "body": "The same kind of problem (digital transformation and AI solutions), with more focus on interface and UX, experimentation, and an established team to learn with."
+      "year": "Now",
+      "place": "Next scale",
+      "heading": "The same problem, closer to the interface",
+      "body": "I still want to change operations with software and AI. What I want more of: designing how it is used, room to try things, and an established team to argue the craft with."
     }
   },
   "work": {
     "title": "Work",
-    "lead": "What changed for the people who used it. No clients, product names, or internal detail.",
+    "lead": "What changed for the people who used it. Public version: no clients, internal products, or detail that does not belong here.",
     "ai": {
       "title": "Support that asks, instead of hunting",
-      "body": "Operations teams stopped jumping between tickets, wikis, and email. Conversational assistance over their own documentation: an interface to resolve work, not a generic chat."
+      "body": "Operations stopped jumping between tickets, wikis, and email. Conversational assistance over their own documentation: an interface to resolve work, not a generic chat."
     },
     "vision": {
       "title": "The first field review is done by the system",
@@ -62,21 +66,21 @@
       "body": "Specify, implement, and ship to the cloud with the same interface standard. The value is team speed, not a one-off repository."
     },
     "coffizine": {
-      "title": "Coffizine (final degree project)",
-      "body": "Interactive generation of web forms. A training project; the hook is UX, not a production product."
+      "kicker": "Formative",
+      "title": "Coffizine",
+      "body": "Final degree project: interactive generation of web forms. The hook is UX; it is not a product in production."
     }
   },
   "skills": {
-    "title": "Skills",
-    "lead": "A multidisciplinary technical profile, currently biased toward interface and UX. Stack I use day to day:",
-    "also": "Also: Vue, API integration, CI/CD, and ways of working with applied AI (not empty “AI” branding)."
+    "title": "Craft",
+    "lead": "A wide technical base. The current bias is interface.",
+    "also": "Also Vue, APIs, CI/CD, and ways of working with applied AI."
   },
   "contact": {
     "title": "Contact",
     "location": "Alicante, Spain"
   },
   "footer": {
-    "copy": "©",
-    "github": "GitHub"
+    "copy": "©"
   }
 }
