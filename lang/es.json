@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Francisco Piñero Alpañés",
-    "description": "Francisco Piñero Alpañés. Transformación digital, interfaces y soluciones con IA. Alicante."
+    "description": "Francisco Piñero Alpañés. Software engineer: interfaces para que el trabajo diario se deje usar. Alicante."
   },
   "a11y": {
     "skip": "Saltar al contenido"
@@ -15,43 +15,43 @@
     "trajectory": "Trayectoria",
     "work": "Trabajo",
     "skills": "Habilidades",
-    "cta": "Contactar"
+    "cta": "Escríbeme"
   },
   "lang": {
     "label": "Idioma"
   },
   "identity": {
     "role": "Software Engineer",
-    "kicker": "Transformación digital e interfaces",
-    "lead": "Implanto soluciones con IA para que el trabajo diario sea más claro de usar. Busco un rol parecido: más peso en interfaz y UX, espacio para experimentar, y un equipo con base técnica fuerte.",
-    "place": "Alicante. Remoto, o híbrido si el equipo está aquí."
+    "kicker": "IA aplicada e interfaz",
+    "lead": "Hago el software que se pone delante de quien opera: claro de usar, metido en el flujo, con IA cuando aporta.",
+    "place": "Alicante."
   },
   "trajectory": {
     "title": "Trayectoria",
-    "lead": "Tres tramos de la misma carrera. No es un cambio de oficio: es un cambio de escala.",
+    "lead": "De una consultora en Villena a implantar IA en operaciones. El hilo es que la herramienta se deje usar.",
     "consultora": {
-      "place": "Villena · consultora",
-      "heading": "Desarrollo web en una casa pequeña",
-      "body": "Cinco años de producto real: apps de gestión, e-commerce, paneles de administración. Laravel, Vue, Docker, bases de datos. En paralelo, el grado en Ingeniería Informática (Universidad de Alicante, Ingeniería del Software) y Coffizine, el TFG: formularios web que se generan con quien los usa."
+      "place": "Villena",
+      "heading": "Posiziona TI - desarrollo web",
+      "body": "Cinco años de ciclo completo: apps de gestión, e-commerce, paneles. Laravel, Vue, Docker. Grado en Ingeniería Informática (Universidad de Alicante, Ingeniería del Software). De ahí sale Coffizine, el TFG."
     },
     "transformacion": {
       "place": "Alicante · remoto",
-      "heading": "Transformación digital, con IA en el medio",
-      "body": "Pasé a implantar soluciones de IA generativa —asistencia conversacional, automatización— y a construir las herramientas internas y los frontends que las hacen usables. Azure, Docker, CI/CD, APIs. El trabajo era principalmente remoto; yo, ya en Alicante."
+      "heading": "Grupo Necomplus / ASEE - transformación digital",
+      "body": "Implantar soluciones de IA generativa y construir las interfaces y herramientas internas que las hacen usables. El trabajo era remoto; yo ya estaba en Alicante."
     },
     "ahora": {
       "year": "Ahora",
-      "place": "Siguiente escala",
+      "place": "Abierto a un rol",
       "heading": "El mismo problema, más cerca de la interfaz",
-      "body": "Sigo queriendo transformar operaciones con software e IA. Lo que pido de más: diseñar cómo se usa, espacio para probar, y un equipo establecido con el que discutir el oficio."
+      "body": "Quiero un rol similar, en transformación digital y soluciones con IA, con más peso en interfaz y UX, espacio para experimentar, y un equipo con base técnica fuerte. Remoto si no es Alicante; híbrido si el equipo está aquí."
     }
   },
   "work": {
     "title": "Trabajo",
-    "lead": "Lo que cambió para quien lo usaba. Versión pública: sin clientes, productos internos ni detalle que no toque.",
+    "lead": "Lo que cambió para quien lo usaba.",
     "ai": {
       "title": "Soporte que pregunta, no que busca",
-      "body": "Operaciones dejó de saltar entre tickets, wikis y correo. Asistencia conversacional sobre su propia documentación: una interfaz para resolver, no un chat genérico."
+      "body": "Operaciones saltaba entre tickets, wikis y correo. Una interfaz sobre su propia documentación: preguntas, respuestas, y a resolver."
     },
     "vision": {
       "title": "La primera revisión de campo la hace el sistema",
@@ -59,22 +59,22 @@
     },
     "queues": {
       "title": "De listado masivo a la siguiente acción",
-      "body": "Operaciones dejó de decidir caso a caso sobre colas enormes. Una interfaz aplica reglas y propone qué hacer; la revisión humana queda para lo que no encaja."
+      "body": "Operaciones dejó de decidir caso a caso sobre colas enormes. La interfaz aplica reglas y propone qué hacer; la persona revisa lo que no encaja."
     },
     "delivery": {
       "title": "Los productos internos no se inventan la vía cada vez",
-      "body": "Especificar, implementar y desplegar en cloud con el mismo criterio de interfaz. El valor es la velocidad del equipo, no un repositorio suelto."
+      "body": "Especificar, implementar y desplegar en cloud con el mismo criterio de interfaz. El valor es la velocidad del equipo."
     },
     "coffizine": {
-      "kicker": "Formativo",
+      "kicker": "TFG",
       "title": "Coffizine",
-      "body": "TFG: generación interactiva de formularios web. El gancho es UX; no es un producto en producción."
+      "body": "Formularios web que se generan con quien los usa. El interés era la interfaz."
     }
   },
   "skills": {
-    "title": "Oficio",
-    "lead": "Base técnica ancha. El sesgo de ahora es interfaz.",
-    "also": "También Vue, APIs, CI/CD y formas de trabajar con IA aplicada."
+    "title": "Habilidades",
+    "lead": "El centro ahora es la interfaz. Debajo hay sistema.",
+    "also": "También Vue, APIs y el camino hasta producción."
   },
   "contact": {
     "title": "Contacto",

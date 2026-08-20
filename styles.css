@@ -192,15 +192,16 @@ a {
 
 .scene-head {
   max-width: 40rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 }
 
 .scene-head h2 {
-  margin: 0 0 0.75rem;
+  margin: 0;
+  padding-bottom: 32px;
   font-family: var(--font-display);
   font-size: clamp(40px, 7vw, 72px);
   font-weight: 400;
-  line-height: 0.95;
+  line-height: 1.12;
 }
 
 .scene-head p {
@@ -214,13 +215,13 @@ a {
   display: block;
   width: 88px;
   height: 10px;
-  margin-top: 16px;
+  margin-top: 18px;
   background: var(--orange);
   border: var(--line) solid var(--ink);
   border-radius: 999px;
 }
 
-/* Intro — title card */
+/* Intro - title card */
 
 .scene-intro {
   padding: 48px 0 64px;
@@ -233,7 +234,7 @@ a {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 352px;
   gap: 48px 64px;
-  align-items: end;
+  align-items: center;
 }
 
 .intro-kicker {
@@ -245,11 +246,11 @@ a {
 }
 
 .intro h1 {
-  margin: 0;
+  margin: 1rem 0;
   font-family: var(--font-display);
   font-size: clamp(48px, 8vw, 92px);
   font-weight: 400;
-  line-height: 0.92;
+  line-height: 1.18;
 }
 
 .intro-lead {
@@ -260,7 +261,7 @@ a {
 }
 
 .intro-place {
-  margin: 20px 0 0;
+  margin: 16px 0 0;
   font-size: 15px;
   font-weight: 600;
 }
@@ -316,11 +317,11 @@ a {
 }
 
 .portrait-heading {
-  margin: 0;
+  margin: 0 0 20px;
   font-family: var(--font-display);
   font-size: 48px;
   font-weight: 400;
-  line-height: 58px;
+  line-height: 1.18;
 }
 
 .portrait-row {
@@ -342,7 +343,7 @@ a {
   font-size: 24px;
 }
 
-/* Path — ink reel */
+/* Path - ink reel */
 
 .scene-path {
   padding: 72px 0 88px;
@@ -388,11 +389,11 @@ a {
   margin: 0;
   font-family: var(--font-display);
   font-size: clamp(28px, 4vw, 40px);
-  line-height: 1;
+  line-height: 1.15;
 }
 
 .path-place {
-  margin: 8px 0 16px;
+  margin: 8px 0 14px;
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -412,7 +413,7 @@ a {
   line-height: 1.5;
 }
 
-/* Work — cels on paper */
+/* Work - cels on paper */
 
 .scene-work {
   padding: 72px 0 88px;
@@ -451,7 +452,7 @@ a {
 }
 
 .work-kicker {
-  margin: 0 0 12px;
+  margin: 0 0 10px;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.14em;
@@ -460,11 +461,11 @@ a {
 }
 
 .work-board h3 {
-  margin: 0 0 12px;
+  margin: 0 0 1em;
   font-family: var(--font-display);
   font-size: clamp(26px, 4vw, 40px);
   font-weight: 400;
-  line-height: 1.1;
+  line-height: 1.28;
 }
 
 .work-board p:last-child {
@@ -479,7 +480,7 @@ a {
   max-width: 18ch;
 }
 
-/* Skills — printed sheet */
+/* Skills - printed sheet */
 
 .scene-skills {
   padding: 72px 0 88px;
@@ -513,7 +514,7 @@ a {
 }
 
 .skills-also {
-  margin: 28px 0 0;
+  margin: 20px 0 0;
   max-width: 36rem;
   font-size: 18px;
   line-height: 1.5;

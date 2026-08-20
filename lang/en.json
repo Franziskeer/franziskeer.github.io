@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Francisco Piñero Alpañés",
-    "description": "Francisco Piñero Alpañés. Digital transformation, interfaces, and applied AI. Based in Alicante."
+    "description": "Francisco Piñero Alpañés. Software engineer: interfaces that make daily work usable. Alicante."
   },
   "a11y": {
     "skip": "Skip to content"
@@ -12,46 +12,46 @@
   },
   "nav": {
     "label": "Sections",
-    "trajectory": "Path",
+    "trajectory": "Experience",
     "work": "Work",
-    "skills": "Craft",
-    "cta": "Contact"
+    "skills": "Skills",
+    "cta": "Email me"
   },
   "lang": {
     "label": "Language"
   },
   "identity": {
     "role": "Software Engineer",
-    "kicker": "Digital transformation and interfaces",
-    "lead": "I ship AI solutions that make daily work clearer to use. I want a similar role: more weight on interface and UX, room to experiment, and a team with a strong technical base.",
-    "place": "Alicante. Remote, or hybrid if the team is here."
+    "kicker": "Applied AI and interface",
+    "lead": "I build the software people operate with: clear to use, in the flow of work, with AI when it helps.",
+    "place": "Alicante."
   },
   "trajectory": {
-    "title": "Path",
-    "lead": "Three stretches of the same career. Not a change of trade: a change of scale.",
+    "title": "Experience",
+    "lead": "From a consultancy in Villena to shipping AI in operations. The through-line is software people can actually use.",
     "consultora": {
-      "place": "Villena · consultancy",
-      "heading": "Web development in a small shop",
-      "body": "Five years of real product: management apps, e-commerce, admin UI. Laravel, Vue, Docker, databases. Alongside that, a BSc in Computer Engineering (University of Alicante, Software Engineering) and Coffizine, the final project: web forms generated with the people who use them."
+      "place": "Villena",
+      "heading": "Posiziona TI - web development",
+      "body": "Five years across the full cycle: management apps, e-commerce, admin UI. Laravel, Vue, Docker. BSc in Computer Engineering (University of Alicante, Software Engineering). Coffizine, the final project, starts here."
     },
     "transformacion": {
       "place": "Alicante · remote",
-      "heading": "Digital transformation, with AI in the middle",
-      "body": "I moved to shipping generative-AI solutions — conversational assistance, automation — and building the internal tools and frontends that make them usable. Azure, Docker, CI/CD, APIs. The work was mostly remote; I was already in Alicante."
+      "heading": "Grupo Necomplus / ASEE - digital transformation",
+      "body": "Shipping generative-AI solutions and building the interfaces and internal tools that make them usable. The work was remote; I was already in Alicante."
     },
     "ahora": {
       "year": "Now",
-      "place": "Next scale",
+      "place": "Open to a role",
       "heading": "The same problem, closer to the interface",
-      "body": "I still want to change operations with software and AI. What I want more of: designing how it is used, room to try things, and an established team to argue the craft with."
+      "body": "I want a similar role in digital transformation and AI, with more weight on interface and UX, room to try things, and a team with a strong technical base. Remote if it is not Alicante; hybrid if the team is here."
     }
   },
   "work": {
     "title": "Work",
-    "lead": "What changed for the people who used it. Public version: no clients, internal products, or detail that does not belong here.",
+    "lead": "What changed for the people who used it.",
     "ai": {
       "title": "Support that asks, instead of hunting",
-      "body": "Operations stopped jumping between tickets, wikis, and email. Conversational assistance over their own documentation: an interface to resolve work, not a generic chat."
+      "body": "Operations jumped between tickets, wikis, and email. An interface over their own documentation: ask, get an answer, move on."
     },
     "vision": {
       "title": "The first field review is done by the system",
@@ -59,22 +59,22 @@
     },
     "queues": {
       "title": "From a massive list to the next action",
-      "body": "Operations stopped deciding case by case on huge queues. An interface applies rules and suggests what to do; human review is left for what does not fit."
+      "body": "Operations stopped deciding case by case on huge queues. The interface applies rules and suggests what to do; people review what does not fit."
     },
     "delivery": {
       "title": "Internal products do not invent the path every time",
-      "body": "Specify, implement, and ship to the cloud with the same interface standard. The value is team speed, not a one-off repository."
+      "body": "Specify, implement, and ship to the cloud with the same interface standard. The value is team speed."
     },
     "coffizine": {
-      "kicker": "Formative",
+      "kicker": "Final project",
       "title": "Coffizine",
-      "body": "Final degree project: interactive generation of web forms. The hook is UX; it is not a product in production."
+      "body": "Web forms generated with the people who use them. The point was the interface."
     }
   },
   "skills": {
-    "title": "Craft",
-    "lead": "A wide technical base. The current bias is interface.",
-    "also": "Also Vue, APIs, CI/CD, and ways of working with applied AI."
+    "title": "Skills",
+    "lead": "The focus now is the interface. Underneath, there is still a system.",
+    "also": "Also Vue, APIs, and the path to production."
   },
   "contact": {
     "title": "Contact",

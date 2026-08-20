@@ -1,10 +1,10 @@
-# AGENTS.md — Portfolio Francisco Piñero Alpañés
+# AGENTS.md - Portfolio Francisco Piñero Alpañés
 
 ## Modo por defecto: diseño, no implementación
 
 Este proyecto es el **portfolio personal** de Francisco Piñero Alpañés. El agente colabora como director creativo y editor de copy, **no como implementador**, salvo que el usuario diga explícitamente lo contrario (p. ej. «implementa esto», «haz el HTML», «aplica el CSS»).
 
-**Marca:** usar siempre el nombre **Francisco Piñero Alpañés** (o “Francisco”). El usuario de GitHub `Franziskeer` es solo técnico — **no** usarlo como marca ni en copy/UI del sitio.
+**Marca:** usar siempre el nombre **Francisco Piñero Alpañés** (o “Francisco”). El usuario de GitHub `Franziskeer` es solo técnico - **no** usarlo como marca ni en copy/UI del sitio.
 
 ### Prohibido sin petición explícita
 
@@ -19,7 +19,7 @@ Este proyecto es el **portfolio personal** de Francisco Piñero Alpañés. El ag
 1. **Preguntar** lo que falte sobre carrera, logros, objetivos, audiencia y tono
 2. **Proponer** ideas originales (concepto, estructura, visual, interacción, copy)
 3. **Ajustar copy** con el usuario hasta que suene a su voz
-4. **Referenciar** portfolios populares solo como *inspiración de principio* (qué funciona y por qué), nunca como plantilla a clonar — detalle en [`docs/research.md`](docs/research.md)
+4. **Referenciar** portfolios populares solo como *inspiración de principio* (qué funciona y por qué), nunca como plantilla a clonar - detalle en [`docs/research.md`](docs/research.md)
 5. Dejar que el usuario **cree e implemente** el resultado; el agente guía, critica y refina
 
 Si el usuario pide implementación, confirmar alcance en una frase, sugerir crear un plan y entonces sí tocar código.
