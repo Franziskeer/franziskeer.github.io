@@ -1,0 +1,176 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: #111;
+  background: #fff;
+  font-family: system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid #111;
+  outline-offset: 2px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip {
+  position: absolute;
+  left: 0.5rem;
+  top: 0.5rem;
+  padding: 0.35rem 0.6rem;
+  background: #fff;
+  transform: translateY(-200%);
+}
+
+.skip:focus {
+  transform: none;
+}
+
+.site-header,
+main,
+.site-footer {
+  max-width: 42rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.25rem;
+  padding-block: 1rem;
+}
+
+.logo {
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+}
+
+.lang {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.lang button {
+  font: inherit;
+  padding: 0.2rem 0.45rem;
+}
+
+.lang button[aria-pressed="true"] {
+  font-weight: 700;
+}
+
+.section {
+  padding-block: 2rem;
+}
+
+.section h1,
+.section h2,
+.section h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.section h1 {
+  font-size: 1.5rem;
+}
+
+.timeline-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 1rem 0;
+}
+
+.timeline-tabs button {
+  font: inherit;
+  text-align: left;
+  padding: 0.35rem 0.5rem;
+}
+
+.timeline-tabs button[aria-selected="true"] {
+  font-weight: 700;
+}
+
+.work-list {
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.work-list li + li {
+  margin-top: 1.25rem;
+}
+
+.work-list h3 {
+  margin: 0 0 0.35rem;
+}
+
+.work-list p,
+.timeline-panel p,
+.section p {
+  margin: 0.5rem 0 0;
+}
+
+.section ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.25rem;
+}
+
+.site-footer {
+  padding-block: 1.5rem 2.5rem;
+  font-size: 0.9rem;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.site-footer p + p {
+  margin-top: 0.35rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

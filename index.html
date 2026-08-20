@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Francisco Piñero Alpañés. Transformación digital, interfaces y soluciones con IA. Alicante."
+    />
+    <title>Francisco Piñero Alpañés</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip" href="#contenido" data-i18n="a11y.skip">Saltar al contenido</a>
+
+    <header class="site-header">
+      <a class="logo" href="#top" data-i18n="brand">Francisco Piñero Alpañés</a>
+      <nav class="nav" aria-labelledby="nav-label">
+        <span id="nav-label" class="visually-hidden" data-i18n="nav.label">Secciones</span>
+        <a href="#trayectoria" data-i18n="nav.trajectory">Trayectoria</a>
+        <a href="#trabajo" data-i18n="nav.work">Trabajo</a>
+        <a href="#aptitudes" data-i18n="nav.skills">Aptitudes</a>
+        <a href="#contacto" data-i18n="nav.contact">Contacto</a>
+      </nav>
+      <div class="lang" role="group" aria-labelledby="lang-label">
+        <span id="lang-label" class="visually-hidden" data-i18n="lang.label">Idioma</span>
+        <button type="button" data-set-lang="es" aria-pressed="true">ES</button>
+        <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </header>
+
+    <main id="contenido">
+      <section id="top" class="section" aria-labelledby="identity-name">
+        <h1 id="identity-name" data-i18n="brand">Francisco Piñero Alpañés</h1>
+        <p data-i18n="identity.lead">
+          Desarrollador de transformación digital. Busco un rol similar, con más
+          peso en diseño de interfaces y UX, espacio para probar tecnologías
+          nuevas, y un equipo con base técnica fuerte.
+        </p>
+        <p data-i18n="identity.location">
+          Vivo en Alicante (origen Villena). Remoto si no es Alicante; híbrido
+          si es en Alicante.
+        </p>
+        <p>
+          <a href="mailto:franpial98@gmail.com">franpial98@gmail.com</a>
+        </p>
+      </section>
+
+      <section id="trayectoria" class="section" aria-labelledby="trajectory-title">
+        <h2 id="trajectory-title" data-i18n="trajectory.title">Trayectoria</h2>
+        <p data-i18n="trajectory.lead">
+          Tres etapas. Elige una para ver qué hice y cómo encaja con lo que
+          busco ahora.
+        </p>
+
+        <div class="timeline" data-timeline>
+          <div class="timeline-tabs" role="tablist" aria-labelledby="trajectory-title">
+            <button
+              type="button"
+              role="tab"
+              id="tab-consultora"
+              aria-controls="panel-consultora"
+              aria-selected="true"
+              data-stage="consultora"
+              data-i18n="trajectory.consultora.tab"
+            >
+              2018–2023 · Consultora
+            </button>
+            <button
+              type="button"
+              role="tab"
+              id="tab-transformacion"
+              aria-controls="panel-transformacion"
+              aria-selected="false"
+              tabindex="-1"
+              data-stage="transformacion"
+              data-i18n="trajectory.transformacion.tab"
+            >
+              2023–2026 · Transformación digital
+            </button>
+            <button
+              type="button"
+              role="tab"
+              id="tab-ahora"
+              aria-controls="panel-ahora"
+              aria-selected="false"
+              tabindex="-1"
+              data-stage="ahora"
+              data-i18n="trajectory.ahora.tab"
+            >
+              Ahora
+            </button>
+          </div>
+
+          <div
+            class="timeline-panel"
+            role="tabpanel"
+            id="panel-consultora"
+            aria-labelledby="tab-consultora"
+            data-stage-panel="consultora"
+          >
+            <h3 data-i18n="trajectory.consultora.heading">
+              Desarrollador web — Posiziona TI (Villena)
+            </h3>
+            <p data-i18n="trajectory.consultora.body">
+              Apps de gestión (Laravel y Vue), e-commerce (PrestaShop y
+              WordPress), interfaces de paneles de administración, bases de
+              datos y Docker. Grado en Ingeniería Informática (Universidad de
+              Alicante, especialidad Ingeniería del Software); TFG Coffizine,
+              generación interactiva de formularios web.
+            </p>
+          </div>
+
+          <div
+            class="timeline-panel"
+            role="tabpanel"
+            id="panel-transformacion"
+            aria-labelledby="tab-transformacion"
+            data-stage-panel="transformacion"
+            hidden
+          >
+            <h3 data-i18n="trajectory.transformacion.heading">
+              Desarrollador de Transformación Digital — Grupo Necomplus / ASEE
+            </h3>
+            <p data-i18n="trajectory.transformacion.body">
+              Implantación de soluciones con IA generativa (automatización y
+              asistencia conversacional), herramientas internas, frontends
+              corporativos, integración de APIs, Azure, Docker y CI/CD. Trabajo
+              principalmente remoto, ya en Alicante.
+            </p>
+          </div>
+
+          <div
+            class="timeline-panel"
+            role="tabpanel"
+            id="panel-ahora"
+            aria-labelledby="tab-ahora"
+            data-stage-panel="ahora"
+            hidden
+          >
+            <h3 data-i18n="trajectory.ahora.heading">Siguiente paso</h3>
+            <p data-i18n="trajectory.ahora.body">
+              Mismo tipo de problema (transformación digital y soluciones con
+              IA), con más foco en interfaz y UX, experimentación, y un equipo
+              establecido con el que intercambiar conocimiento.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="trabajo" class="section" aria-labelledby="work-title">
+        <h2 id="work-title" data-i18n="work.title">Trabajo</h2>
+        <p data-i18n="work.lead">
+          Versión pública: sin clientes, cifras ni detalle interno. El foco es
+          el tipo de problema y el papel que tuve.
+        </p>
+
+        <ul class="work-list">
+          <li>
+            <article>
+              <h3 data-i18n="work.ai.title">IA generativa en entorno corporativo</h3>
+              <p data-i18n="work.ai.body">
+                Diseño e implantación de automatización y asistencia
+                conversacional para equipos internos: producto usable, no un
+                modelo suelto.
+              </p>
+            </article>
+          </li>
+          <li>
+            <article>
+              <h3 data-i18n="work.tools.title">Herramientas internas</h3>
+              <p data-i18n="work.tools.body">
+                Herramientas para simplificar operación de equipos: flujos
+                completos, no features aisladas.
+              </p>
+            </article>
+          </li>
+          <li>
+            <article>
+              <h3 data-i18n="work.front.title">Frontends corporativos e integración</h3>
+              <p data-i18n="work.front.body">
+                Interfaces en entorno empresarial e integración de APIs y
+                plataformas: la capa usable sobre sistemas ya existentes.
+              </p>
+            </article>
+          </li>
+          <li>
+            <article>
+              <h3 data-i18n="work.coffizine.title">Coffizine (TFG)</h3>
+              <p data-i18n="work.coffizine.body">
+                Generación interactiva de formularios web. Proyecto formativo;
+                el gancho es UX, no un producto en producción.
+              </p>
+            </article>
+          </li>
+        </ul>
+      </section>
+
+      <section id="aptitudes" class="section" aria-labelledby="skills-title">
+        <h2 id="skills-title" data-i18n="skills.title">Aptitudes</h2>
+        <p data-i18n="skills.lead">
+          Perfil técnico multidisciplinar con preferencia actual por interfaz y
+          UX. Stack con el que trabajo de forma habitual:
+        </p>
+        <ul>
+          <li>Node.js (JavaScript y TypeScript)</li>
+          <li>Python</li>
+          <li>React</li>
+          <li>Docker</li>
+          <li>Azure</li>
+        </ul>
+        <p data-i18n="skills.also">
+          También: Vue, integración de APIs, CI/CD, y metodologías de trabajo
+          con IA aplicada (sin pose de “AI” vacía).
+        </p>
+      </section>
+
+      <section id="contacto" class="section" aria-labelledby="contact-title">
+        <h2 id="contact-title" data-i18n="contact.title">Contacto</h2>
+        <p data-i18n="contact.lead">El camino principal es el correo.</p>
+        <p>
+          <a href="mailto:franpial98@gmail.com">franpial98@gmail.com</a>
+        </p>
+        <p>
+          <a
+            href="https://www.linkedin.com/in/francisco-pinero-alpanes/"
+            rel="noopener noreferrer"
+            >LinkedIn</a
+          >
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        <span data-i18n="footer.copy">©</span>
+        <span id="year"></span>
+        Francisco Piñero Alpañés
+      </p>
+      <p>
+        <a
+          href="https://github.com/Franziskeer"
+          rel="noopener noreferrer"
+          data-i18n="footer.github"
+          >GitHub</a
+        >
+      </p>
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
+</html>
