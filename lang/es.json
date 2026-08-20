@@ -1,0 +1,80 @@
+{
+  "meta": {
+    "title": "Francisco Piñero Alpañés",
+    "description": "Francisco Piñero Alpañés. Transformación digital, interfaces y soluciones con IA. Alicante."
+  },
+  "a11y": {
+    "skip": "Saltar al contenido"
+  },
+  "brand": "Francisco Piñero Alpañés",
+  "nav": {
+    "label": "Secciones",
+    "trajectory": "Trayectoria",
+    "work": "Trabajo",
+    "skills": "Aptitudes",
+    "contact": "Contacto"
+  },
+  "lang": {
+    "label": "Idioma"
+  },
+  "identity": {
+    "lead": "Desarrollador de transformación digital. Busco un rol similar, con más peso en diseño de interfaces y UX, espacio para probar tecnologías nuevas, y un equipo con base técnica fuerte.",
+    "location": "Vivo en Alicante (origen Villena). Remoto si no es Alicante; híbrido si es en Alicante."
+  },
+  "trajectory": {
+    "title": "Trayectoria",
+    "lead": "Tres etapas. Elige una para ver qué hice y cómo encaja con lo que busco ahora.",
+    "consultora": {
+      "tab": "2018–2023 · Consultora",
+      "heading": "Desarrollador web — Posiziona TI (Villena)",
+      "body": "Apps de gestión (Laravel y Vue), e-commerce (PrestaShop y WordPress), interfaces de paneles de administración, bases de datos y Docker. Grado en Ingeniería Informática (Universidad de Alicante, especialidad Ingeniería del Software); TFG Coffizine, generación interactiva de formularios web."
+    },
+    "transformacion": {
+      "tab": "2023–2026 · Transformación digital",
+      "heading": "Desarrollador de Transformación Digital — Grupo Necomplus / ASEE",
+      "body": "Implantación de soluciones con IA generativa (automatización y asistencia conversacional), herramientas internas, frontends corporativos, integración de APIs, Azure, Docker y CI/CD. Trabajo principalmente remoto, ya en Alicante."
+    },
+    "ahora": {
+      "tab": "Ahora",
+      "heading": "Siguiente paso",
+      "body": "Mismo tipo de problema (transformación digital y soluciones con IA), con más foco en interfaz y UX, experimentación, y un equipo establecido con el que intercambiar conocimiento."
+    }
+  },
+  "work": {
+    "title": "Trabajo",
+    "lead": "Lo que cambió para quien lo usaba. Sin clientes, nombres de producto ni detalle interno.",
+    "ai": {
+      "title": "Soporte que pregunta, no que busca",
+      "body": "Los equipos de operaciones dejaron de saltar entre tickets, wikis y correo. Asistencia conversacional sobre su propia documentación: una interfaz para resolver, no un chat genérico."
+    },
+    "vision": {
+      "title": "La primera revisión de campo la hace el sistema",
+      "body": "Si hay que aportar evidencias fotográficas, el sistema dice si la captura sirve y por qué. La persona entra cuando falla."
+    },
+    "queues": {
+      "title": "De listado masivo a la siguiente acción",
+      "body": "Operaciones dejó de decidir caso a caso sobre colas enormes. Una interfaz aplica reglas y propone qué hacer; la revisión humana queda para lo que no encaja."
+    },
+    "delivery": {
+      "title": "Los productos internos no se inventan la vía cada vez",
+      "body": "Especificar, implementar y desplegar en cloud con el mismo criterio de interfaz. El valor es la velocidad del equipo, no un repositorio suelto."
+    },
+    "coffizine": {
+      "title": "Coffizine (TFG)",
+      "body": "Generación interactiva de formularios web. Proyecto formativo; el gancho es UX, no un producto en producción."
+    }
+  },
+  "skills": {
+    "title": "Aptitudes",
+    "lead": "Perfil técnico multidisciplinar con preferencia actual por interfaz y UX. Stack con el que trabajo de forma habitual:",
+    "also": "También: Vue, integración de APIs, CI/CD, y metodologías de trabajo con IA aplicada (sin pose de “AI” vacía)."
+  },
+  "contact": {
+    "title": "Contacto",
+    "lead": "El camino principal es el correo."
+  },
+  "footer": {
+    "copy": "©",
+    "github": "GitHub"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "meta": {
+    "title": "Francisco Piñero Alpañés",
+    "description": "Francisco Piñero Alpañés. Digital transformation, interfaces, and applied AI. Based in Alicante."
+  },
+  "a11y": {
+    "skip": "Skip to content"
+  },
+  "brand": "Francisco Piñero Alpañés",
+  "nav": {
+    "label": "Sections",
+    "trajectory": "Trajectory",
+    "work": "Work",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "lang": {
+    "label": "Language"
+  },
+  "identity": {
+    "lead": "Digital transformation developer. I am looking for a similar role, with more weight on interface design and UX, room to try new technology, and a team with a strong technical base.",
+    "location": "I live in Alicante (originally from Villena). Remote if the role is not in Alicante; hybrid if it is."
+  },
+  "trajectory": {
+    "title": "Trajectory",
+    "lead": "Three stages. Choose one to see what I did and how it leads to what I want next.",
+    "consultora": {
+      "tab": "2018–2023 · Consultancy",
+      "heading": "Web developer — Posiziona TI (Villena)",
+      "body": "Management apps (Laravel and Vue), e-commerce (PrestaShop and WordPress), admin UI, databases, and Docker. BSc in Computer Engineering (University of Alicante, Software Engineering); final project Coffizine, interactive web form generation."
+    },
+    "transformacion": {
+      "tab": "2023–2026 · Digital transformation",
+      "heading": "Digital Transformation Developer — Grupo Necomplus / ASEE",
+      "body": "Shipped generative-AI solutions (automation and conversational assistance), internal tools, corporate frontends, API integration, Azure, Docker, and CI/CD. Mostly remote, already based in Alicante."
+    },
+    "ahora": {
+      "tab": "Now",
+      "heading": "Next step",
+      "body": "The same kind of problem (digital transformation and AI solutions), with more focus on interface and UX, experimentation, and an established team to learn with."
+    }
+  },
+  "work": {
+    "title": "Work",
+    "lead": "What changed for the people who used it. No clients, product names, or internal detail.",
+    "ai": {
+      "title": "Support that asks, instead of hunting",
+      "body": "Operations teams stopped jumping between tickets, wikis, and email. Conversational assistance over their own documentation: an interface to resolve work, not a generic chat."
+    },
+    "vision": {
+      "title": "The first field review is done by the system",
+      "body": "When photographic evidence is required, the system says whether the capture is good enough and why. A person steps in when it fails."
+    },
+    "queues": {
+      "title": "From a massive list to the next action",
+      "body": "Operations stopped deciding case by case on huge queues. An interface applies rules and suggests what to do; human review is left for what does not fit."
+    },
+    "delivery": {
+      "title": "Internal products do not invent the path every time",
+      "body": "Specify, implement, and ship to the cloud with the same interface standard. The value is team speed, not a one-off repository."
+    },
+    "coffizine": {
+      "title": "Coffizine (final degree project)",
+      "body": "Interactive generation of web forms. A training project; the hook is UX, not a production product."
+    }
+  },
+  "skills": {
+    "title": "Skills",
+    "lead": "A multidisciplinary technical profile, currently biased toward interface and UX. Stack I use day to day:",
+    "also": "Also: Vue, API integration, CI/CD, and ways of working with applied AI (not empty “AI” branding)."
+  },
+  "contact": {
+    "title": "Contact",
+    "lead": "Email is the main path."
+  },
+  "footer": {
+    "copy": "©",
+    "github": "GitHub"
+  }
+}

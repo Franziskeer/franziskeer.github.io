@@ -18,6 +18,7 @@ Sitio estático para GitHub Pages. Contenedor funcional (contenido + i18n); la d
 
 ## Archivos
 
-- `index.html` — estructura y copy por defecto (ES)
+- `index.html` — estructura y copy por defecto (ES, si JS no carga)
 - `styles.css` — layout mínimo, sin dirección estética
 - `main.js` — i18n y trayectoria
+- `lang/es.json` · `lang/en.json` — copy
