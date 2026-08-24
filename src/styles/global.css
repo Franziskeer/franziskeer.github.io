@@ -13,6 +13,20 @@
   --text-3xl: clamp(1.625rem, 1.15rem + 1.6vw, 2.25rem);
   --text-4xl: clamp(1.875rem, 1.2rem + 2.2vw, 3rem);
   --text-5xl: clamp(2.25rem, 1.3rem + 3vw, 4rem);
+
+  --color-background: #f0f0f0;
+
+  --color-accent-50: #fdf6ef;
+  --color-accent-100: #f9ebdb;
+  --color-accent-200: #f3d4b5;
+  --color-accent-300: #ebb686;
+  --color-accent-400: #e18f56;
+  --color-accent-500: #d96c2c;
+  --color-accent-600: #cc5b2a;
+  --color-accent-700: #aa4624;
+  --color-accent-800: #883924;
+  --color-accent-900: #6e3120;
+  --color-accent: var(--color-accent-500);
 }
 
 :root {
@@ -20,7 +34,7 @@
   --color-text: #000;
   --color-primary: #000;
   --color-secondary: #000;
-  --color-accent: #000;
+  --color-accent: #d96c2c;
   --color-background-secondary: #f0f0f0;
   --color-text-secondary: #000;
 }
@@ -49,4 +63,64 @@ h5,
 h6 {
   font-weight: 400;
   line-height: 1.5;
+}
+
+/* Film grain animado encima del canvas del hero (patrón tipo itssharl.ee). */
+.hero-grain {
+  overflow: hidden;
+  mix-blend-mode: lighten;
+}
+
+.hero-grain::before {
+  content: "";
+  position: absolute;
+  top: -150%;
+  left: -50%;
+  width: 300%;
+  height: 300%;
+  background-image: url("/grain.svg");
+  background-size: 160px;
+  background-repeat: repeat;
+  opacity: 0.45;
+  animation: hero-grain 7s steps(10) infinite;
+}
+
+@keyframes hero-grain {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-8%, -12%);
+  }
+  20% {
+    transform: translate(14%, 4%);
+  }
+  30% {
+    transform: translate(-4%, 18%);
+  }
+  40% {
+    transform: translate(10%, -16%);
+  }
+  50% {
+    transform: translate(-18%, 6%);
+  }
+  60% {
+    transform: translate(6%, 14%);
+  }
+  70% {
+    transform: translate(-12%, -8%);
+  }
+  80% {
+    transform: translate(16%, 10%);
+  }
+  90% {
+    transform: translate(-6%, -14%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-grain::before {
+    animation: none;
+  }
 }

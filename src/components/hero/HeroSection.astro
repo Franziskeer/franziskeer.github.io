@@ -1,20 +1,50 @@
 ---
 import { defaultLang, ui } from "../../lang";
+import HeroInkCanvas from "./HeroInkCanvas";
 ---
 
 <section
-  class="flex min-h-svh w-full flex-col items-center justify-center gap-2 px-5 py-24 text-center sm:px-8"
+  class="relative isolate flex min-h-svh w-full flex-col items-center justify-center bg-background px-5 py-24 text-center sm:px-8"
 >
-  <h1
-    data-i18n="home.title"
-    class="font-display text-balance uppercase text-xl sm:text-2xl md:text-3xl lg:text-4xl max-w-[22ch] sm:max-w-[24ch]"
+  <div class="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
+    <HeroInkCanvas client:only="react" />
+  </div>
+
+  <div
+    class="relative z-10 flex flex-col items-center gap-2 text-white mix-blend-difference"
   >
-    {ui[defaultLang]["home.title"]}
-  </h1>
-  <h2
-    data-i18n="home.subtitle"
-    class="font-sans text-balance text-xs md:text-lg max-w-[40ch] sm:max-w-[42ch] md:max-w-[48ch] lg:max-w-[54ch]"
+    <h1
+      data-i18n="home.title"
+      class="font-display text-balance uppercase text-xl sm:text-2xl md:text-3xl lg:text-4xl max-w-[22ch] sm:max-w-[24ch]"
+    >
+      {ui[defaultLang]["home.title"]}
+    </h1>
+    <h2
+      data-i18n="home.subtitle"
+      class="font-sans text-balance text-xs md:text-lg max-w-[40ch] sm:max-w-[42ch] md:max-w-[48ch] lg:max-w-[54ch]"
+    >
+      {ui[defaultLang]["home.subtitle"]}
+    </h2>
+  </div>
+
+  <nav
+    class="relative z-10 mt-4 flex items-baseline gap-3 font-display text-2xl uppercase tracking-wide sm:gap-4 sm:text-3xl"
+    aria-label="Sections"
   >
-    {ui[defaultLang]["home.subtitle"]}
-  </h2>
+    <a
+      href="#work"
+      data-i18n="home.cta.work"
+      class="text-accent transition-opacity hover:opacity-70"
+    >
+      {ui[defaultLang]["home.cta.work"]}
+    </a>
+    <span class="select-none text-accent-300" aria-hidden="true">/</span>
+    <a
+      href="#about"
+      data-i18n="home.cta.about"
+      class="text-accent-800 transition-opacity hover:opacity-70"
+    >
+      {ui[defaultLang]["home.cta.about"]}
+    </a>
+  </nav>
 </section>

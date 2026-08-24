@@ -1,7 +1,172 @@
 ---
-import LanguageSwitcher from "./LanguageSwitcher.astro";
+import { Menu, Xmark } from "iconoir-react";
+import { defaultLang, ui } from "../../lang";
 ---
 
-<nav class="fixed top-0 left-0 right-0 z-50 bg-transparent border-b shadow">
-  <LanguageSwitcher />
-</nav>
+<header class="pointer-events-none fixed inset-x-0 top-0 z-50">
+  <nav
+    class="pointer-events-auto mx-auto flex w-full items-center justify-between px-5 py-4 sm:px-8 sm:py-5"
+    aria-label="Primary"
+  >
+    <a
+      href="/"
+      class="group inline-flex shrink-0 focus-visible:outline-none"
+      aria-label={ui[defaultLang]["site.title"]}
+    >
+      <img
+        src="/favicon.svg"
+        alt=""
+        width="72"
+        height="72"
+        class="h-14 w-14 origin-left transition-transform duration-300 ease-out group-hover:scale-105 sm:h-16 sm:w-16 md:h-[4.5rem] md:w-[4.5rem]"
+        decoding="async"
+      />
+    </a>
+
+    <!-- Reserva el hueco del toggle (el botón real es fixed + mix-blend). -->
+    <span class="size-12 shrink-0" aria-hidden="true"></span>
+  </nav>
+</header>
+
+<button
+  type="button"
+  data-nav-toggle
+  class="pointer-events-auto fixed top-4 right-5 z-50 inline-flex size-12 cursor-pointer items-center justify-center text-white mix-blend-difference transition-opacity duration-300 hover:opacity-70 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/50 sm:top-5 sm:right-8"
+  aria-expanded="false"
+  aria-controls="nav-menu"
+  data-i18n-aria-label="nav.menu"
+  aria-label={ui[defaultLang]["nav.menu"]}
+>
+  <span
+    data-nav-icon="open"
+    class="absolute inset-0 flex items-center justify-center transition duration-300"
+  >
+    <Menu width={32} height={32} strokeWidth={1.6} aria-hidden />
+  </span>
+  <span
+    data-nav-icon="close"
+    class="absolute inset-0 flex items-center justify-center scale-75 opacity-0 transition duration-300"
+    aria-hidden="true"
+  >
+    <Xmark width={32} height={32} strokeWidth={1.6} aria-hidden />
+  </span>
+</button>
+
+<div
+  id="nav-menu"
+  data-nav-menu
+  class="pointer-events-none invisible fixed inset-0 z-40 min-h-svh bg-background/95 opacity-0 transition-[opacity,visibility] duration-[400ms]"
+  aria-hidden="true"
+>
+  <ul
+    class="flex flex-col gap-5 px-5 pt-28 font-display text-3xl uppercase tracking-wide sm:gap-6 sm:px-8 sm:pt-32 sm:text-4xl"
+  >
+    <li class="nav-menu-item translate-y-4 opacity-0">
+      <a
+        href="#work"
+        data-nav-link
+        data-i18n="home.cta.work"
+        class="inline-block transition-colors duration-300 hover:text-accent focus-visible:text-accent focus-visible:outline-none"
+      >
+        {ui[defaultLang]["home.cta.work"]}
+      </a>
+    </li>
+    <li class="nav-menu-item translate-y-4 opacity-0">
+      <a
+        href="#about"
+        data-nav-link
+        data-i18n="home.cta.about"
+        class="inline-block transition-colors duration-300 hover:text-accent focus-visible:text-accent focus-visible:outline-none"
+      >
+        {ui[defaultLang]["home.cta.about"]}
+      </a>
+    </li>
+  </ul>
+</div>
+
+<style>
+  [data-nav-menu][data-open] {
+    pointer-events: auto;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  [data-nav-menu][data-open] .nav-menu-item {
+    animation: nav-link-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  [data-nav-menu][data-open] .nav-menu-item:nth-child(1) {
+    animation-delay: 80ms;
+  }
+
+  [data-nav-menu][data-open] .nav-menu-item:nth-child(2) {
+    animation-delay: 160ms;
+  }
+
+  [data-nav-toggle][aria-expanded="true"] {
+    color: var(--color-text);
+    mix-blend-mode: normal;
+  }
+
+  [data-nav-toggle][aria-expanded="true"] [data-nav-icon="open"] {
+    opacity: 0;
+    scale: 0.75;
+  }
+
+  [data-nav-toggle][aria-expanded="true"] [data-nav-icon="close"] {
+    opacity: 1;
+    scale: 1;
+  }
+
+  @keyframes nav-link-in {
+    from {
+      opacity: 0;
+      transform: translateY(1rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-nav-menu],
+    [data-nav-icon],
+    .group img,
+    [data-nav-link] {
+      transition: none !important;
+    }
+
+    [data-nav-menu][data-open] .nav-menu-item {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>
+
+<script>
+  const toggle = document.querySelector("[data-nav-toggle]");
+  const menu = document.querySelector("[data-nav-menu]");
+
+  if (toggle instanceof HTMLButtonElement && menu instanceof HTMLElement) {
+    const setOpen = (open: boolean) => {
+      toggle.setAttribute("aria-expanded", String(open));
+      menu.toggleAttribute("data-open", open);
+      menu.setAttribute("aria-hidden", String(!open));
+      document.body.style.overflow = open ? "hidden" : "";
+    };
+
+    toggle.addEventListener("click", () => {
+      setOpen(toggle.getAttribute("aria-expanded") !== "true");
+    });
+
+    menu.querySelectorAll("[data-nav-link]").forEach((link) => {
+      link.addEventListener("click", () => setOpen(false));
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") setOpen(false);
+    });
+  }
+</script>

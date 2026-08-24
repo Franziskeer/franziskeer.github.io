@@ -1,6 +1,35 @@
 ---
-import { defaultLang, langStorageKey, ui } from '../../lang'
+import { defaultLang, languages, langStorageKey, ui } from '../../lang'
+
+const entries = Object.entries(languages)
 ---
+
+<div
+  role="group"
+  data-lang-switcher
+  data-i18n-aria-label="language.label"
+  aria-label="Language"
+  class="fixed bottom-5 right-5 z-50 flex items-baseline gap-2 mix-blend-difference sm:bottom-8 sm:right-8"
+>
+  {
+    entries.map(([lang, label], index) => (
+      <span class="contents">
+        {index > 0 && (
+          <span class="select-none text-xs text-white/40" aria-hidden="true">
+            /
+          </span>
+        )}
+        <button
+          type="button"
+          data-lang={lang}
+          class="cursor-pointer font-sans text-xs uppercase tracking-[0.14em] text-white opacity-45 transition-opacity hover:opacity-100 focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/60 aria-[current=true]:opacity-100"
+        >
+          {label}
+        </button>
+      </span>
+    ))
+  }
+</div>
 
 <script is:inline define:vars={{ ui, defaultLang, langStorageKey }}>
   const supported = Object.keys(ui)
@@ -45,16 +74,14 @@ import { defaultLang, langStorageKey, ui } from '../../lang'
   localStorage.setItem(langStorageKey, lang)
   applyLang(lang)
 
-  document
-    .querySelector('[data-lang-switcher]')
-    ?.addEventListener('click', (event) => {
-      const target = event.target
-      const el = target instanceof Element ? target : target.parentElement
-      const button = el?.closest('[data-lang]')
-      const next = button?.getAttribute('data-lang')
-      if (!next || !supported.includes(next)) return
+  document.addEventListener('click', (event) => {
+    const target = event.target
+    const el = target instanceof Element ? target : target.parentElement
+    const button = el?.closest('[data-lang-switcher] [data-lang]')
+    const next = button?.getAttribute('data-lang')
+    if (!next || !supported.includes(next)) return
 
-      localStorage.setItem(langStorageKey, next)
-      applyLang(next)
-    })
+    localStorage.setItem(langStorageKey, next)
+    applyLang(next)
+  })
 </script>
