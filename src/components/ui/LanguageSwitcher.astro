@@ -1,0 +1,18 @@
+---
+import { languages } from '../../lang'
+---
+
+<div
+  role="group"
+  data-lang-switcher
+  data-i18n-aria-label="language.label"
+  aria-label="Language"
+>
+  {
+    Object.entries(languages).map(([lang, label]) => (
+      <button type="button" data-lang={lang}>
+        {label}
+      </button>
+    ))
+  }
+</div>

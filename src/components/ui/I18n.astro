@@ -1,0 +1,60 @@
+---
+import { defaultLang, langStorageKey, ui } from '../../lang'
+---
+
+<script is:inline define:vars={{ ui, defaultLang, langStorageKey }}>
+  const supported = Object.keys(ui)
+
+  function detectLang() {
+    const stored = localStorage.getItem(langStorageKey)
+    if (stored && supported.includes(stored)) return stored
+
+    const browser = (navigator.language || '').slice(0, 2).toLowerCase()
+    if (supported.includes(browser)) return browser
+
+    return defaultLang
+  }
+
+  function t(lang, key) {
+    return ui[lang]?.[key] || ui[defaultLang][key] || key
+  }
+
+  function applyLang(lang) {
+    document.documentElement.lang = lang
+
+    document.querySelectorAll('[data-i18n]').forEach((el) => {
+      const key = el.getAttribute('data-i18n')
+      if (key) el.textContent = t(lang, key)
+    })
+
+    document.querySelectorAll('[data-i18n-aria-label]').forEach((el) => {
+      const key = el.getAttribute('data-i18n-aria-label')
+      if (key) el.setAttribute('aria-label', t(lang, key))
+    })
+
+    document.querySelectorAll('[data-lang]').forEach((el) => {
+      if (el.getAttribute('data-lang') === lang) {
+        el.setAttribute('aria-current', 'true')
+      } else {
+        el.removeAttribute('aria-current')
+      }
+    })
+  }
+
+  const lang = detectLang()
+  localStorage.setItem(langStorageKey, lang)
+  applyLang(lang)
+
+  document
+    .querySelector('[data-lang-switcher]')
+    ?.addEventListener('click', (event) => {
+      const target = event.target
+      const el = target instanceof Element ? target : target.parentElement
+      const button = el?.closest('[data-lang]')
+      const next = button?.getAttribute('data-lang')
+      if (!next || !supported.includes(next)) return
+
+      localStorage.setItem(langStorageKey, next)
+      applyLang(next)
+    })
+</script>

@@ -1,0 +1,32 @@
+---
+import '../styles/global.css'
+import I18n from '../components/ui/I18n.astro'
+import LanguageSwitcher from '../components/ui/LanguageSwitcher.astro'
+import { defaultLang, ui } from '../lang'
+
+type Props = {
+  title?: string
+}
+
+const { title = ui[defaultLang]['site.title'] } = Astro.props
+---
+
+<!doctype html>
+<html lang={defaultLang}>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title data-i18n="site.title">{title}</title>
+  </head>
+  <body>
+    
+    <nav>
+      <LanguageSwitcher />
+    </nav>
+    
+    <slot />
+    <I18n />
+  </body>
+</html>
