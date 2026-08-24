@@ -3,14 +3,11 @@ import { Menu, Xmark } from "iconoir-react";
 import { defaultLang, ui } from "../../lang";
 ---
 
-<header class="pointer-events-none fixed inset-x-0 top-0 z-50">
-  <nav
-    class="pointer-events-auto mx-auto flex w-full items-center justify-between px-5 py-4 sm:px-8 sm:py-5"
-    aria-label="Primary"
-  >
+<header class="nav-header">
+  <nav class="nav-bar page-gutter-x" aria-label="Primary">
     <a
       href="/"
-      class="group inline-flex shrink-0 focus-visible:outline-none"
+      class="nav-logo"
       aria-label={ui[defaultLang]["site.title"]}
     >
       <img
@@ -18,36 +15,29 @@ import { defaultLang, ui } from "../../lang";
         alt=""
         width="72"
         height="72"
-        class="h-14 w-14 origin-left transition-transform duration-300 ease-out group-hover:scale-105 sm:h-16 sm:w-16 md:h-[4.5rem] md:w-[4.5rem]"
+        class="nav-logo-img"
         decoding="async"
       />
     </a>
 
     <!-- Reserva el hueco del toggle (el botón real es fixed + mix-blend). -->
-    <span class="size-12 shrink-0" aria-hidden="true"></span>
+    <span class="nav-toggle-spacer" aria-hidden="true"></span>
   </nav>
 </header>
 
 <button
   type="button"
   data-nav-toggle
-  class="pointer-events-auto fixed top-4 right-5 z-50 inline-flex size-12 cursor-pointer items-center justify-center text-white mix-blend-difference transition-opacity duration-300 hover:opacity-70 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/50 sm:top-5 sm:right-8"
+  class="nav-toggle"
   aria-expanded="false"
   aria-controls="nav-menu"
   data-i18n-aria-label="nav.menu"
   aria-label={ui[defaultLang]["nav.menu"]}
 >
-  <span
-    data-nav-icon="open"
-    class="absolute inset-0 flex items-center justify-center transition duration-300"
-  >
+  <span data-nav-icon="open" class="nav-toggle-icon">
     <Menu width={32} height={32} strokeWidth={1.6} aria-hidden />
   </span>
-  <span
-    data-nav-icon="close"
-    class="absolute inset-0 flex items-center justify-center scale-75 opacity-0 transition duration-300"
-    aria-hidden="true"
-  >
+  <span data-nav-icon="close" class="nav-toggle-icon nav-toggle-icon--close" aria-hidden="true">
     <Xmark width={32} height={32} strokeWidth={1.6} aria-hidden />
   </span>
 </button>
@@ -55,28 +45,26 @@ import { defaultLang, ui } from "../../lang";
 <div
   id="nav-menu"
   data-nav-menu
-  class="pointer-events-none invisible fixed inset-0 z-40 min-h-svh bg-background/95 opacity-0 transition-[opacity,visibility] duration-[400ms]"
+  class="nav-menu"
   aria-hidden="true"
 >
-  <ul
-    class="flex flex-col gap-5 px-5 pt-28 font-display text-3xl uppercase tracking-wide sm:gap-6 sm:px-8 sm:pt-32 sm:text-4xl"
-  >
-    <li class="nav-menu-item translate-y-4 opacity-0">
+  <ul class="nav-menu-list page-gutter-x font-display">
+    <li class="nav-menu-item">
       <a
         href="#work"
         data-nav-link
         data-i18n="home.cta.work"
-        class="inline-block transition-colors duration-300 hover:text-accent focus-visible:text-accent focus-visible:outline-none"
+        class="nav-menu-link"
       >
         {ui[defaultLang]["home.cta.work"]}
       </a>
     </li>
-    <li class="nav-menu-item translate-y-4 opacity-0">
+    <li class="nav-menu-item">
       <a
         href="#about"
         data-nav-link
         data-i18n="home.cta.about"
-        class="inline-block transition-colors duration-300 hover:text-accent focus-visible:text-accent focus-visible:outline-none"
+        class="nav-menu-link"
       >
         {ui[defaultLang]["home.cta.about"]}
       </a>
@@ -85,6 +73,169 @@ import { defaultLang, ui } from "../../lang";
 </div>
 
 <style>
+  .nav-header {
+    pointer-events: none;
+    position: fixed;
+    inset-inline: 0;
+    top: 0;
+    z-index: 50;
+  }
+
+  .nav-bar {
+    pointer-events: auto;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 1rem;
+  }
+
+  @media (width >= 40rem) {
+    .nav-bar {
+      padding-block: 1.25rem;
+    }
+  }
+
+  .nav-logo {
+    display: inline-flex;
+    flex-shrink: 0;
+  }
+
+  .nav-logo:focus-visible {
+    outline: none;
+  }
+
+  .nav-logo-img {
+    height: 3.5rem;
+    width: 3.5rem;
+    transform-origin: left center;
+    transition: transform 300ms ease-out;
+  }
+
+  .nav-logo:hover .nav-logo-img {
+    transform: scale(1.05);
+  }
+
+  @media (width >= 40rem) {
+    .nav-logo-img {
+      height: 4rem;
+      width: 4rem;
+    }
+  }
+
+  @media (width >= 48rem) {
+    .nav-logo-img {
+      height: 4.5rem;
+      width: 4.5rem;
+    }
+  }
+
+  .nav-toggle-spacer {
+    flex-shrink: 0;
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .nav-toggle {
+    pointer-events: auto;
+    position: fixed;
+    top: 1rem;
+    right: var(--spacing-page-gutter-x);
+    z-index: 50;
+    display: inline-flex;
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    padding: 0;
+    color: white;
+    mix-blend-mode: difference;
+    transition: opacity 300ms;
+  }
+
+  .nav-toggle:hover {
+    opacity: 0.7;
+  }
+
+  .nav-toggle:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 1px rgb(255 255 255 / 0.5);
+  }
+
+  @media (width >= 40rem) {
+    .nav-toggle {
+      top: 1.25rem;
+      right: var(--spacing-page-gutter-x-sm);
+    }
+  }
+
+  .nav-toggle-icon {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+      opacity 300ms,
+      scale 300ms;
+  }
+
+  .nav-toggle-icon--close {
+    opacity: 0;
+    scale: 0.75;
+  }
+
+  .nav-menu {
+    pointer-events: none;
+    visibility: hidden;
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    min-height: 100svh;
+    background-color: color-mix(in oklab, var(--color-background) 95%, transparent);
+    opacity: 0;
+    transition:
+      opacity 400ms,
+      visibility 400ms;
+  }
+
+  .nav-menu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding-top: 7rem;
+    font-size: var(--text-3xl);
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+  }
+
+  @media (width >= 40rem) {
+    .nav-menu-list {
+      gap: 1.5rem;
+      padding-top: 8rem;
+      font-size: var(--text-4xl);
+    }
+  }
+
+  .nav-menu-item {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+
+  .nav-menu-link {
+    display: inline-block;
+    transition: color 300ms;
+  }
+
+  .nav-menu-link:hover,
+  .nav-menu-link:focus-visible {
+    color: var(--color-accent);
+    outline: none;
+  }
+
   [data-nav-menu][data-open] {
     pointer-events: auto;
     visibility: visible;
@@ -130,10 +281,11 @@ import { defaultLang, ui } from "../../lang";
   }
 
   @media (prefers-reduced-motion: reduce) {
-    [data-nav-menu],
-    [data-nav-icon],
-    .group img,
-    [data-nav-link] {
+    .nav-logo-img,
+    .nav-toggle,
+    .nav-toggle-icon,
+    .nav-menu,
+    .nav-menu-link {
       transition: none !important;
     }
 

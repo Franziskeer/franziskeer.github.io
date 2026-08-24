@@ -3,48 +3,204 @@ import { defaultLang, ui } from "../../lang";
 import HeroInkCanvas from "./HeroInkCanvas";
 ---
 
-<section
-  class="relative isolate flex min-h-svh w-full flex-col items-center justify-center bg-background px-5 py-24 text-center sm:px-8"
->
-  <div class="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
+<section class="hero page-gutter-x bg-background">
+  <div class="hero-canvas" aria-hidden="true">
     <HeroInkCanvas client:only="react" />
   </div>
 
-  <div
-    class="relative z-10 flex flex-col items-center gap-2 text-white mix-blend-difference"
-  >
-    <h1
-      data-i18n="home.title"
-      class="font-display text-balance uppercase text-xl sm:text-2xl md:text-3xl lg:text-4xl max-w-[22ch] sm:max-w-[24ch]"
-    >
+  <div class="hero-copy">
+    <h1 data-i18n="home.title" class="hero-title font-display">
       {ui[defaultLang]["home.title"]}
     </h1>
-    <h2
-      data-i18n="home.subtitle"
-      class="font-sans text-balance text-xs md:text-lg max-w-[40ch] sm:max-w-[42ch] md:max-w-[48ch] lg:max-w-[54ch]"
-    >
+    <h2 data-i18n="home.subtitle" class="hero-subtitle font-sans">
       {ui[defaultLang]["home.subtitle"]}
     </h2>
   </div>
 
-  <nav
-    class="relative z-10 mt-4 flex items-baseline gap-3 font-display text-2xl uppercase tracking-wide sm:gap-4 sm:text-3xl"
-    aria-label="Sections"
-  >
+  <nav class="hero-cta font-display" aria-label="Sections">
     <a
       href="#work"
       data-i18n="home.cta.work"
-      class="text-accent transition-opacity hover:opacity-70"
+      class="hero-cta-link text-accent"
     >
       {ui[defaultLang]["home.cta.work"]}
     </a>
-    <span class="select-none text-accent-300" aria-hidden="true">/</span>
+    <span class="hero-cta-sep text-accent-500" aria-hidden="true">/</span>
     <a
       href="#about"
       data-i18n="home.cta.about"
-      class="text-accent-800 transition-opacity hover:opacity-70"
+      class="hero-cta-link text-accent-500"
     >
       {ui[defaultLang]["home.cta.about"]}
     </a>
   </nav>
 </section>
+
+<style>
+  .hero {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    min-height: 100svh;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-block: 6rem;
+    text-align: center;
+  }
+
+  .hero-canvas {
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-copy {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    mix-blend-mode: difference;
+  }
+
+  .hero-title {
+    max-width: 22ch;
+    text-wrap: balance;
+    text-transform: uppercase;
+    font-size: var(--text-xl);
+  }
+
+  .hero-subtitle {
+    max-width: 40ch;
+    text-wrap: balance;
+    font-size: var(--text-xs);
+  }
+
+  @media (width >= 40rem) {
+    .hero-title {
+      max-width: 24ch;
+      font-size: var(--text-2xl);
+    }
+
+    .hero-subtitle {
+      max-width: 42ch;
+    }
+  }
+
+  @media (width >= 48rem) {
+    .hero-title {
+      font-size: var(--text-3xl);
+    }
+
+    .hero-subtitle {
+      max-width: 48ch;
+      font-size: var(--text-lg);
+    }
+  }
+
+  @media (width >= 64rem) {
+    .hero-title {
+      font-size: var(--text-4xl);
+    }
+
+    .hero-subtitle {
+      max-width: 54ch;
+    }
+  }
+
+  .hero-cta {
+    position: relative;
+    z-index: 10;
+    margin-top: 1rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    font-size: var(--text-2xl);
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+  }
+
+  @media (width >= 40rem) {
+    .hero-cta {
+      gap: 1rem;
+      font-size: var(--text-3xl);
+    }
+  }
+
+  .hero-cta-sep {
+    user-select: none;
+  }
+
+  .hero-cta-link {
+    transition: opacity 150ms;
+  }
+
+  .hero-cta-link:hover {
+    opacity: 0.7;
+  }
+
+  /* Effect consumed by the React island — justified :global. */
+  :global(.hero-grain) {
+    overflow: hidden;
+    mix-blend-mode: lighten;
+  }
+
+  :global(.hero-grain)::before {
+    content: "";
+    position: absolute;
+    top: -150%;
+    left: -50%;
+    width: 300%;
+    height: 300%;
+    background-image: url("/grain.svg");
+    background-size: 160px;
+    background-repeat: repeat;
+    opacity: 0.45;
+    animation: hero-grain 7s steps(10) infinite;
+  }
+
+  @keyframes hero-grain {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    10% {
+      transform: translate(-8%, -12%);
+    }
+    20% {
+      transform: translate(14%, 4%);
+    }
+    30% {
+      transform: translate(-4%, 18%);
+    }
+    40% {
+      transform: translate(10%, -16%);
+    }
+    50% {
+      transform: translate(-18%, 6%);
+    }
+    60% {
+      transform: translate(6%, 14%);
+    }
+    70% {
+      transform: translate(-12%, -8%);
+    }
+    80% {
+      transform: translate(16%, 10%);
+    }
+    90% {
+      transform: translate(-6%, -14%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :global(.hero-grain)::before {
+      animation: none;
+    }
+  }
+</style>

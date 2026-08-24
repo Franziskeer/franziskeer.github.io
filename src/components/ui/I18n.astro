@@ -9,20 +9,20 @@ const entries = Object.entries(languages)
   data-lang-switcher
   data-i18n-aria-label="language.label"
   aria-label="Language"
-  class="fixed bottom-5 right-5 z-50 flex items-baseline gap-2 mix-blend-difference sm:bottom-8 sm:right-8"
+  class="lang-switcher"
 >
   {
     entries.map(([lang, label], index) => (
       <span class="contents">
         {index > 0 && (
-          <span class="select-none text-xs text-white/40" aria-hidden="true">
+          <span class="lang-sep" aria-hidden="true">
             /
           </span>
         )}
         <button
           type="button"
           data-lang={lang}
-          class="cursor-pointer font-sans text-xs uppercase tracking-[0.14em] text-white opacity-45 transition-opacity hover:opacity-100 focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/60 aria-[current=true]:opacity-100"
+          class="lang-option font-sans"
         >
           {label}
         </button>
@@ -30,6 +30,56 @@ const entries = Object.entries(languages)
     ))
   }
 </div>
+
+<style>
+  .lang-switcher {
+    position: fixed;
+    bottom: 1.25rem;
+    right: var(--spacing-page-gutter-x);
+    z-index: 50;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    mix-blend-mode: difference;
+  }
+
+  @media (width >= 40rem) {
+    .lang-switcher {
+      bottom: 2rem;
+      right: var(--spacing-page-gutter-x-sm);
+    }
+  }
+
+  .lang-sep {
+    user-select: none;
+    font-size: var(--text-xs);
+    color: rgb(255 255 255 / 0.4);
+  }
+
+  .lang-option {
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    padding: 0;
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: white;
+    opacity: 0.45;
+    transition: opacity 150ms;
+  }
+
+  .lang-option:hover,
+  .lang-option:focus-visible,
+  .lang-option[aria-current="true"] {
+    opacity: 1;
+  }
+
+  .lang-option:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 1px rgb(255 255 255 / 0.6);
+  }
+</style>
 
 <script is:inline define:vars={{ ui, defaultLang, langStorageKey }}>
   const supported = Object.keys(ui)
