@@ -1,8 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import { defaultLang, ui } from '../lang'
+import HeroSection from '../components/hero/HeroSection.astro'
 ---
 
 <Layout>
-  <h1 data-i18n="home.title">{ui[defaultLang]['home.title']}</h1>
+  <HeroSection />
 </Layout>

@@ -1,0 +1,20 @@
+---
+import { defaultLang, ui } from "../../lang";
+---
+
+<section
+  class="flex min-h-svh w-full flex-col items-center justify-center gap-2 px-5 py-24 text-center sm:px-8"
+>
+  <h1
+    data-i18n="home.title"
+    class="font-display text-balance uppercase text-xl sm:text-2xl md:text-3xl lg:text-4xl max-w-[22ch] sm:max-w-[24ch]"
+  >
+    {ui[defaultLang]["home.title"]}
+  </h1>
+  <h2
+    data-i18n="home.subtitle"
+    class="font-sans text-balance text-xs md:text-lg max-w-[40ch] sm:max-w-[42ch] md:max-w-[48ch] lg:max-w-[54ch]"
+  >
+    {ui[defaultLang]["home.subtitle"]}
+  </h2>
+</section>

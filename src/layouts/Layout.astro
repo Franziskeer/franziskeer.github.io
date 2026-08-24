@@ -1,8 +1,9 @@
 ---
-import '../styles/global.css'
+import { Font } from 'astro:assets'
 import I18n from '../components/ui/I18n.astro'
-import LanguageSwitcher from '../components/ui/LanguageSwitcher.astro'
+import Navbar from '../components/ui/Navbar.astro'
 import { defaultLang, ui } from '../lang'
+import '../styles/global.css'
 
 type Props = {
   title?: string
@@ -19,13 +20,11 @@ const { title = ui[defaultLang]['site.title'] } = Astro.props
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <title data-i18n="site.title">{title}</title>
+    <Font cssVariable="--font-brasika-display" preload />
+    <Font cssVariable="--font-sora" />
   </head>
   <body>
-    
-    <nav>
-      <LanguageSwitcher />
-    </nav>
-    
+    <Navbar />
     <slot />
     <I18n />
   </body>
