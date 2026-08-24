@@ -5,6 +5,7 @@ import react from '@astrojs/react'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
+  site: 'https://franziskeer.github.io',
   integrations: [react()],
   vite: {
     plugins: [tailwindcss()],
