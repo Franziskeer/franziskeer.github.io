@@ -66,6 +66,11 @@ body {
   font-size: var(--text-base);
 }
 
+html.is-loading,
+html.is-loading body {
+  overflow: hidden;
+}
+
 h1,
 h2,
 h3,

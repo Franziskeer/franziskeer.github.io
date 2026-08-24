@@ -2,6 +2,7 @@
 import { Font } from 'astro:assets'
 import I18n from '../components/ui/I18n.astro'
 import Navbar from '../components/ui/Navbar.astro'
+import PageLoader from '../components/ui/PageLoader.astro'
 import { defaultLang, ui } from '../lang'
 import '../styles/global.css'
 
@@ -22,8 +23,12 @@ const { title = ui[defaultLang]['site.title'] } = Astro.props
     <title data-i18n="site.title">{title}</title>
     <Font cssVariable="--font-brasika-display" preload />
     <Font cssVariable="--font-sora" />
+    <script is:inline>
+      document.documentElement.classList.add("is-loading");
+    </script>
   </head>
   <body>
+    <PageLoader />
     <Navbar />
     <slot />
     <I18n />

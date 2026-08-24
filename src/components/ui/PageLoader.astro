@@ -1,0 +1,217 @@
+---
+import { defaultLang, ui } from "../../lang";
+---
+
+<div
+  id="page-loader"
+  class="page-loader"
+  role="progressbar"
+  aria-valuemin="0"
+  aria-valuemax="100"
+  aria-valuenow="0"
+  data-i18n-aria-label="loader.label"
+  aria-label={ui[defaultLang]["loader.label"]}
+>
+  <div class="page-loader-inner">
+    <img
+      src="/favicon.svg"
+      alt=""
+      width="120"
+      height="120"
+      class="page-loader-logo"
+      decoding="async"
+      aria-hidden="true"
+    />
+    <p class="page-loader-value font-display" data-loader-value aria-hidden="true">
+      0%
+    </p>
+  </div>
+</div>
+
+<style>
+  .page-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: grid;
+    place-items: center;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    transition:
+      opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+      visibility 0.55s;
+  }
+
+  .page-loader[data-done] {
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .page-loader-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .page-loader-logo {
+    width: 5.5rem;
+    height: 5.5rem;
+    transform-origin: center;
+    animation: page-loader-logo 2.4s ease-in-out infinite;
+  }
+
+  @media (width >= 40rem) {
+    .page-loader-logo {
+      width: 7rem;
+      height: 7rem;
+    }
+  }
+
+  .page-loader-value {
+    margin: 0;
+    font-size: var(--text-2xl);
+    letter-spacing: 0.08em;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+    opacity: 0.7;
+  }
+
+  @keyframes page-loader-logo {
+    0%,
+    100% {
+      transform: translateY(0) scale(1);
+      filter: saturate(1);
+    }
+    50% {
+      transform: translateY(-0.4rem) scale(1.04);
+      filter: saturate(1.08);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .page-loader {
+      transition:
+        opacity 0.2s ease,
+        visibility 0.2s;
+    }
+
+    .page-loader-logo {
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+  const loader = document.getElementById("page-loader");
+  const valueEl = document.querySelector("[data-loader-value]");
+
+  if (loader instanceof HTMLElement && valueEl instanceof HTMLElement) {
+    const WEIGHTS = {
+      document: 0.12,
+      window: 0.28,
+      fonts: 0.15,
+      hero: 0.45,
+    } as const;
+
+    type Gate = keyof typeof WEIGHTS;
+
+    const gates: Record<Gate, boolean> = {
+      document: document.readyState !== "loading",
+      window: document.readyState === "complete",
+      fonts: false,
+      hero: false,
+    };
+
+    let display = 0;
+    let target = 0;
+    let finished = false;
+    let raf = 0;
+
+    const setGate = (gate: Gate) => {
+      if (gates[gate] || finished) return;
+      gates[gate] = true;
+      recompute();
+    };
+
+    const recompute = () => {
+      let next = 0;
+      for (const key of Object.keys(WEIGHTS) as Gate[]) {
+        if (gates[key]) next += WEIGHTS[key];
+      }
+      // Soft ceiling while waiting so the number still feels alive.
+      if (!Object.values(gates).every(Boolean)) {
+        next = Math.min(next, 0.92);
+      } else {
+        next = 1;
+      }
+      target = next * 100;
+      if (!raf) raf = requestAnimationFrame(tick);
+    };
+
+    const tick = () => {
+      raf = 0;
+      const delta = target - display;
+      if (Math.abs(delta) < 0.15) {
+        display = target;
+      } else {
+        display += delta * 0.12;
+        raf = requestAnimationFrame(tick);
+      }
+
+      const rounded = Math.min(100, Math.round(display));
+      valueEl.textContent = `${rounded}%`;
+      loader.setAttribute("aria-valuenow", String(rounded));
+
+      if (rounded >= 100 && Object.values(gates).every(Boolean)) {
+        finish();
+      }
+    };
+
+    const finish = () => {
+      if (finished) return;
+      finished = true;
+      display = 100;
+      valueEl.textContent = "100%";
+      loader.setAttribute("aria-valuenow", "100");
+      loader.setAttribute("data-done", "");
+      document.documentElement.classList.remove("is-loading");
+
+      const cleanup = () => {
+        loader.remove();
+      };
+      loader.addEventListener("transitionend", cleanup, { once: true });
+      window.setTimeout(cleanup, 700);
+    };
+
+    if (gates.document) setGate("document");
+    else {
+      document.addEventListener("DOMContentLoaded", () => setGate("document"), {
+        once: true,
+      });
+    }
+
+    if (gates.window) setGate("window");
+    else {
+      window.addEventListener("load", () => setGate("window"), { once: true });
+    }
+
+    if (document.fonts?.ready) {
+      document.fonts.ready
+        .then(() => setGate("fonts"))
+        .catch(() => setGate("fonts"));
+    } else {
+      setGate("fonts");
+    }
+
+    window.addEventListener("portfolio:hero-ready", () => setGate("hero"), {
+      once: true,
+    });
+
+    // Don't trap the user if WebGPU/hydration fails or hangs.
+    window.setTimeout(() => setGate("hero"), 10000);
+
+    recompute();
+  }
+</script>

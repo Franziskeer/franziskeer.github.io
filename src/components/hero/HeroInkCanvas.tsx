@@ -283,9 +283,13 @@ function WebGPUCanvas({
         });
         renderer.toneMapping = NoToneMapping;
         renderer.outputColorSpace = SRGBColorSpace;
-        await renderer.init();
-        setIsRendererReady(true);
-        return renderer;
+        try {
+          await renderer.init();
+          setIsRendererReady(true);
+          return renderer;
+        } finally {
+          window.dispatchEvent(new CustomEvent("portfolio:hero-ready"));
+        }
       }}
     >
       <AdaptiveDpr />

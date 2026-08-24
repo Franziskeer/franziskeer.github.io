@@ -6,6 +6,7 @@ const es = {
   'home.cta.about': 'Sobre mí',
   'nav.menu': 'Abrir menú',
   'language.label': 'Idioma',
+  'loader.label': 'Cargando página',
 } as const
 
 export default es
