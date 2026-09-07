@@ -1,0 +1,14 @@
+---
+type Props = {
+  class?: string
+  as?: 'div' | 'main' | 'section'
+  /** false = full-bleed (hero, media edge-to-edge) */
+  constrain?: boolean
+}
+
+const { class: className = '', as: Tag = 'main', constrain = true } = Astro.props
+---
+
+<Tag class:list={[constrain && 'page-shell', className]}>
+  <slot />
+</Tag>

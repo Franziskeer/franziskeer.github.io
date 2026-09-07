@@ -1,0 +1,34 @@
+---
+import { contactLinks } from "../../content/work";
+import { defaultLang, i18nMap, ui } from "../../lang";
+
+const lang = defaultLang;
+const t = ui[lang];
+---
+
+<section class="work-section pb-4" aria-labelledby="contact-title">
+  <h2 id="contact-title" class="work-section-title font-display" data-i18n="work.contact.title">
+    {t["work.contact.title"]}
+  </h2>
+  <p class="m-0 max-w-[42ch] text-secondary" data-i18n="work.contact.body">
+    {t["work.contact.body"]}
+  </p>
+  <nav class="mt-6 flex flex-wrap items-baseline gap-3 font-display text-xl uppercase" aria-label="Contact">
+    {contactLinks.map((link, index) => (
+      <>
+        {index > 0 && (
+          <span class="text-accent-500 opacity-60" aria-hidden="true">/</span>
+        )}
+        <a
+          class="text-accent no-underline hover:underline hover:underline-offset-4 focus-visible:underline focus-visible:outline-none"
+          href={link.href}
+          data-i18n-map={i18nMap(link.label)}
+          rel="noreferrer"
+          target="_blank"
+        >
+          {link.label[lang]}
+        </a>
+      </>
+    ))}
+  </nav>
+</section>

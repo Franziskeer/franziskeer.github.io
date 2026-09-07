@@ -1,0 +1,109 @@
+---
+import { projectPath, type WorkProject } from "../../content/work";
+import { defaultLang, i18nMap, ui } from "../../lang";
+import Badge from "../ui/Badge.astro";
+import WorkMedia from "./WorkMedia.astro";
+
+type Props = {
+  project: WorkProject;
+  index: number;
+  next: WorkProject | null;
+};
+
+const { project, index, next } = Astro.props;
+const lang = defaultLang;
+const t = ui[lang];
+const number = String(index + 1).padStart(2, "0");
+const { title, year, category, stack, role, sections, links, image, imageAlt } = project;
+---
+
+<article class="grid gap-10 pb-8">
+  <header class="grid gap-3">
+    <p class="m-0 flex flex-wrap gap-x-5 gap-y-1 text-xs text-accent">
+      <span>{year}</span>
+      <span data-i18n-map={i18nMap(category)}>{category[lang]}</span>
+    </p>
+    <h1 class="m-0 max-w-[18ch] font-display text-4xl/[0.95] uppercase text-grain md:text-5xl" data-i18n-map={i18nMap(title)}>
+      {title[lang]}
+    </h1>
+    <dl class="mt-1">
+      <div class="flex flex-wrap gap-x-4 gap-y-2 text-sm">
+        <dt class="text-xs font-semibold uppercase tracking-[0.06em] text-secondary" data-i18n="work.case.role">
+          {t["work.case.role"]}
+        </dt>
+        <dd class="m-0" data-i18n-map={i18nMap(role)}>{role[lang]}</dd>
+      </div>
+    </dl>
+    {stack.length > 0 && (
+      <div class="flex flex-wrap gap-1">
+        {stack.map((tech) => <Badge>{tech}</Badge>)}
+      </div>
+    )}
+    {links && links.length > 0 && (
+      <ul class="m-0 flex list-none flex-wrap gap-4 p-0 text-sm">
+        {links.map((link) => (
+          <li>
+            <a class="text-accent" href={link.href} rel="noreferrer" target="_blank" data-i18n-map={i18nMap(link.label)}>
+              {link.label[lang]}
+            </a>
+          </li>
+        ))}
+      </ul>
+    )}
+  </header>
+
+  <WorkMedia class="min-h-64 md:min-h-96" number={number} image={image} imageAlt={imageAlt} eager />
+
+  <div class="grid gap-8 xl:grid-cols-3 xl:gap-12">
+    <section class="grid content-start gap-2">
+      <h2 class="m-0 text-xs font-semibold uppercase tracking-[0.08em] text-accent" data-i18n="work.case.problem">
+        {t["work.case.problem"]}
+      </h2>
+      <p class="m-0 max-w-[42ch] text-sm text-secondary" data-i18n-map={i18nMap(sections.problem)}>
+        {sections.problem[lang]}
+      </p>
+    </section>
+    <section class="grid content-start gap-2">
+      <h2 class="m-0 text-xs font-semibold uppercase tracking-[0.08em] text-accent" data-i18n="work.case.approach">
+        {t["work.case.approach"]}
+      </h2>
+      <p class="m-0 max-w-[42ch] text-sm text-secondary" data-i18n-map={i18nMap(sections.approach)}>
+        {sections.approach[lang]}
+      </p>
+    </section>
+    <section class="grid content-start gap-2">
+      <h2 class="m-0 text-xs font-semibold uppercase tracking-[0.08em] text-accent" data-i18n="work.case.outcome">
+        {t["work.case.outcome"]}
+      </h2>
+      <p class="m-0 max-w-[42ch] text-sm text-secondary" data-i18n-map={i18nMap(sections.outcome)}>
+        {sections.outcome[lang]}
+      </p>
+    </section>
+  </div>
+
+  <nav class="flex flex-wrap items-end justify-between gap-6 border-t work-rule pt-6">
+    <a
+      class="text-sm text-secondary no-underline hover:text-accent focus-visible:text-accent focus-visible:outline-none"
+      href="/work"
+      data-i18n="work.case.back"
+    >
+      {t["work.case.back"]}
+    </a>
+    {next && (
+      <a
+        class="group/next grid gap-0.5 text-right font-display uppercase no-underline focus-visible:outline-none"
+        href={projectPath(next.id)}
+      >
+        <span class="font-sans text-xs tracking-[0.08em] text-accent" data-i18n="work.case.next">
+          {t["work.case.next"]}
+        </span>
+        <span
+          class="text-lg group-hover/next:text-accent group-focus-visible/next:text-accent"
+          data-i18n-map={i18nMap(next.title)}
+        >
+          {next.title[lang]}
+        </span>
+      </a>
+    )}
+  </nav>
+</article>

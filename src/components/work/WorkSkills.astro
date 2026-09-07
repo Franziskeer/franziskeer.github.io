@@ -1,0 +1,59 @@
+---
+import { SKILL_EXPERTISE_MAX, skillsByGroup } from "../../content/skills";
+import { defaultLang, i18nMap, ui } from "../../lang";
+
+const groups = skillsByGroup();
+const lang = defaultLang;
+const t = ui[lang];
+
+function expertiseLabel(name: string, expertise: number) {
+  return {
+    en: `${name}, ${expertise} of ${SKILL_EXPERTISE_MAX}`,
+    es: `${name}, ${expertise} de ${SKILL_EXPERTISE_MAX}`,
+  };
+}
+---
+
+<section class="work-section" aria-labelledby="skills-title">
+  <h2 id="skills-title" class="work-section-title font-display" data-i18n="work.skills.title">
+    {t["work.skills.title"]}
+  </h2>
+
+  <div class="grid gap-10 md:grid-cols-2 md:gap-x-16">
+    {groups.map((group) => (
+      <div>
+        <h3 class="mb-3 text-xs font-semibold uppercase tracking-[0.08em] text-accent" data-i18n-map={i18nMap(group.label)}>
+          {group.label[lang]}
+        </h3>
+        <ul class="m-0 grid list-none p-0">
+          {group.skills.map((skill) => {
+            const level = Math.min(SKILL_EXPERTISE_MAX, Math.max(0, skill.expertise));
+            const label = expertiseLabel(skill.name, level);
+
+            return (
+              <li class="flex items-center justify-between gap-4 border-b border-black/20 py-2.5">
+                <span class="text-sm">{skill.name}</span>
+                <div
+                  class="flex shrink-0 gap-[0.28rem]"
+                  role="img"
+                  aria-label={label[lang]}
+                  data-i18n-map={i18nMap(label)}
+                  data-i18n-map-attr="aria-label"
+                >
+                  {Array.from({ length: SKILL_EXPERTISE_MAX }, (_, tick) => (
+                    <span
+                      class:list={[
+                        "inline-block size-[0.55rem] border border-accent",
+                        tick < level ? "bg-accent" : "bg-transparent",
+                      ]}
+                    ></span>
+                  ))}
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    ))}
+  </div>
+</section>

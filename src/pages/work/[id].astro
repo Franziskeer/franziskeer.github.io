@@ -1,0 +1,27 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PageShell from "../../components/ui/PageShell.astro";
+import WorkCaseStudy from "../../components/work/WorkCaseStudy.astro";
+import { getNextProject, projects } from "../../content/work";
+
+export function getStaticPaths() {
+  return projects.map((project, index) => ({
+    params: { id: project.id },
+    props: { project, index },
+  }));
+}
+
+const { project, index } = Astro.props;
+const next = getNextProject(project.id);
+
+const titleMap = {
+  en: `${project.title.en} — Fran Piñero`,
+  es: `${project.title.es} — Fran Piñero`,
+};
+---
+
+<Layout titleMap={titleMap} descriptionMap={project.summary}>
+  <PageShell>
+    <WorkCaseStudy project={project} index={index} next={next} />
+  </PageShell>
+</Layout>

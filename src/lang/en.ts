@@ -7,6 +7,22 @@ const en = {
   'nav.menu': 'Open menu',
   'language.label': 'Language',
   'loader.label': 'Loading page',
+  'work.pageTitle': 'Work — Fran Piñero',
+  'work.description': 'Selected work, experience, and skills from Fran Piñero — software engineer building web and mobile products.',
+  'work.eyebrow': 'Selected work',
+  'work.title': 'Work',
+  'work.intro': 'I design and build web and mobile products — from messy business problems to interfaces people actually use. Seven years shipping full-stack software.',
+  'work.focus': 'Web · Mobile · Full-stack',
+  'work.experience.title': 'Experience',
+  'work.skills.title': 'Skills',
+  'work.contact.title': 'Let\'s talk',
+  'work.contact.body': 'Open to product roles, collaborations, and conversations about building useful software.',
+  'work.case.role': 'Role',
+  'work.case.problem': 'Problem',
+  'work.case.approach': 'Approach',
+  'work.case.outcome': 'Outcome',
+  'work.case.back': 'All work',
+  'work.case.next': 'Next',
 } as const
 
 export default en

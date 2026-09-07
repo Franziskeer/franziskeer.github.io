@@ -1,0 +1,44 @@
+---
+import { defaultLang, ui } from "../../lang";
+import { experience, projects } from "../../content/work";
+import WorkContact from "./WorkContact.astro";
+import WorkExperience from "./WorkExperience.astro";
+import WorkProjectItem from "./WorkProjectItem.astro";
+import WorkSkills from "./WorkSkills.astro";
+
+const t = ui[defaultLang];
+---
+
+<div class="pb-8">
+  <section aria-labelledby="work-title">
+    <header class="mb-6 grid gap-4 xl:mb-10 xl:grid-cols-2 xl:items-end">
+      <h1
+        id="work-title"
+        class="m-0 font-display text-5xl/[0.85] uppercase text-grain md:text-[clamp(4rem,12vw,8rem)]"
+        data-i18n="work.title"
+      >
+        {t["work.title"]}
+      </h1>
+
+      <div class="grid gap-2">
+        <p class="m-0 text-xs font-semibold uppercase tracking-[0.06em] text-accent" data-i18n="work.eyebrow">
+          {t["work.eyebrow"]}
+        </p>
+        <p class="m-0 max-w-[42ch]" data-i18n="work.intro">
+          {t["work.intro"]}
+        </p>
+        <p class="mt-1 text-xs uppercase tracking-[0.08em] text-secondary" data-i18n="work.focus">
+          {t["work.focus"]}
+        </p>
+      </div>
+    </header>
+
+    <ol class="m-0 grid list-none p-0">
+      {projects.map((project, index) => <WorkProjectItem {...project} index={index} />)}
+    </ol>
+  </section>
+
+  <WorkExperience items={experience} />
+  <WorkSkills />
+  <WorkContact />
+</div>

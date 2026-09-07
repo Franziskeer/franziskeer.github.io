@@ -8,6 +8,8 @@ export const languages = {
 
 export type Lang = keyof typeof languages
 
+export type LocalizedString = Record<Lang, string>
+
 export const defaultLang: Lang = 'en'
 
 export const langStorageKey = 'lang'
@@ -19,3 +21,7 @@ export const ui = {
 
 export type Messages = typeof en
 export type MessageKey = keyof Messages
+
+export function i18nMap(value: LocalizedString) {
+  return JSON.stringify(value)
+}
