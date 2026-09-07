@@ -8,9 +8,10 @@ import '../styles/global.css'
 
 type Props = {
   title?: string
+  showLoader?: boolean
 }
 
-const { title = ui[defaultLang]['site.title'] } = Astro.props
+const { title = ui[defaultLang]['site.title'], showLoader = false } = Astro.props
 ---
 
 <!doctype html>
@@ -23,12 +24,14 @@ const { title = ui[defaultLang]['site.title'] } = Astro.props
     <title data-i18n="site.title">{title}</title>
     <Font cssVariable="--font-brasika-display" preload />
     <Font cssVariable="--font-sora" />
-    <script is:inline>
-      document.documentElement.classList.add("is-loading");
-    </script>
+    {showLoader && (
+      <script is:inline>
+        document.documentElement.classList.add("is-loading");
+      </script>
+    )}
   </head>
   <body>
-    <PageLoader />
+    {showLoader && <PageLoader />}
     <Navbar />
     <slot />
     <I18n />

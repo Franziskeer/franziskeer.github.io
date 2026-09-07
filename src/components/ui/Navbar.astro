@@ -51,7 +51,7 @@ import { defaultLang, ui } from "../../lang";
   <ul class="nav-menu-list page-gutter-x font-display">
     <li class="nav-menu-item">
       <a
-        href="#work"
+        href="/work"
         data-nav-link
         data-i18n="home.cta.work"
         class="nav-menu-link"
@@ -61,7 +61,7 @@ import { defaultLang, ui } from "../../lang";
     </li>
     <li class="nav-menu-item">
       <a
-        href="#about"
+        href="/about"
         data-nav-link
         data-i18n="home.cta.about"
         class="nav-menu-link"
@@ -206,7 +206,7 @@ import { defaultLang, ui } from "../../lang";
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
-    padding-top: 7rem;
+    padding-top: calc(var(--height-nav) + var(--spacing-nav-clearance));
     font-size: var(--text-3xl);
     text-transform: uppercase;
     letter-spacing: 0.025em;
@@ -215,7 +215,6 @@ import { defaultLang, ui } from "../../lang";
   @media (width >= 40rem) {
     .nav-menu-list {
       gap: 1.5rem;
-      padding-top: 8rem;
       font-size: var(--text-4xl);
     }
   }
