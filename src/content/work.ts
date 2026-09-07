@@ -78,6 +78,11 @@ export const projects = [
         es: "Una app de finanzas personales que funciona: la pieza actual de cómo convierto un problema cotidiano en una interfaz móvil de calidad de producto.",
       },
     },
+    image: "/work/finance-tracker.webp",
+    imageAlt: {
+      en: "Two smartphone mockups of the expense tracker: monthly dashboard and spending history",
+      es: "Dos mockups de móvil del tracker de gastos: dashboard del mes e historial",
+    },
   },
   {
     id: "coffizine",
@@ -112,6 +117,11 @@ export const projects = [
         en: "Degree project that still stands for how I connect server-side systems with visual craft — not just screens, and not just APIs.",
         es: "Proyecto de fin de carrera que sigue representando cómo conecto sistemas de servidor con oficio visual: no solo pantallas, ni solo APIs.",
       },
+    },
+    image: "/work/coffizine.webp",
+    imageAlt: {
+      en: "Coffizine wordmark beside a dark editorial still of the brand cup",
+      es: "Logotipo de Coffizine junto a un bodegón editorial oscuro de la taza de la marca",
     },
   },
 ] as const satisfies readonly WorkProject[];
