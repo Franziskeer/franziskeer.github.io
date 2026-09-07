@@ -317,7 +317,7 @@ export default function HeroInkCanvas() {
         <InkFullscreenQuad />
       </WebGPUCanvas>
       <div
-        className="hero-grain pointer-events-none absolute inset-0 z-1"
+        className="grain-shift pointer-events-none absolute inset-0 z-1"
         aria-hidden="true"
       />
     </div>

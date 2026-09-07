@@ -19,7 +19,7 @@ function expertiseLabel(name: string, expertise: number) {
     {t["work.skills.title"]}
   </h2>
 
-  <div class="grid gap-10 md:grid-cols-2 md:gap-x-16">
+  <div class="grid gap-10 md:grid-cols-2 md:gap-x-16 md:gap-y-8 xl:grid-cols-4 xl:gap-x-10">
     {groups.map((group) => (
       <div>
         <h3 class="mb-3 text-xs font-semibold uppercase tracking-[0.08em] text-accent" data-i18n-map={i18nMap(group.label)}>
@@ -31,7 +31,7 @@ function expertiseLabel(name: string, expertise: number) {
             const label = expertiseLabel(skill.name, level);
 
             return (
-              <li class="flex items-center justify-between gap-4 border-b border-black/20 py-2.5">
+              <li class="flex items-center justify-between gap-4 border-b border-black/20 py-2">
                 <span class="text-sm">{skill.name}</span>
                 <div
                   class="flex shrink-0 gap-[0.28rem]"

@@ -9,7 +9,6 @@ const es = {
   'loader.label': 'Cargando página',
   'work.pageTitle': 'Trabajo — Fran Piñero',
   'work.description': 'Trabajo seleccionado, experiencia y skills de Fran Piñero — ingeniero de software que construye productos web y móviles.',
-  'work.eyebrow': 'Trabajo seleccionado',
   'work.title': 'Trabajo',
   'work.intro': 'Diseño y construyo productos web y móviles: de problemas de negocio enredados a interfaces que la gente usa de verdad. Siete años entregando software full-stack.',
   'work.focus': 'Web · Móvil · Full-stack',

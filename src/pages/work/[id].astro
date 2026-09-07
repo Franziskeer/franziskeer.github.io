@@ -5,13 +5,13 @@ import WorkCaseStudy from "../../components/work/WorkCaseStudy.astro";
 import { getNextProject, projects } from "../../content/work";
 
 export function getStaticPaths() {
-  return projects.map((project, index) => ({
+  return projects.map((project) => ({
     params: { id: project.id },
-    props: { project, index },
+    props: { project },
   }));
 }
 
-const { project, index } = Astro.props;
+const { project } = Astro.props;
 const next = getNextProject(project.id);
 
 const titleMap = {
@@ -22,6 +22,6 @@ const titleMap = {
 
 <Layout titleMap={titleMap} descriptionMap={project.summary}>
   <PageShell>
-    <WorkCaseStudy project={project} index={index} next={next} />
+    <WorkCaseStudy project={project} next={next} />
   </PageShell>
 </Layout>

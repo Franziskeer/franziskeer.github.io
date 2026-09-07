@@ -3,22 +3,21 @@ import type { LocalizedString } from "../../lang";
 import { defaultLang, i18nMap } from "../../lang";
 
 type Props = {
-  number: string;
   image?: string;
   imageAlt?: LocalizedString;
   class?: string;
   eager?: boolean;
 };
 
-const { number, image, imageAlt, eager = false, class: className } = Astro.props;
+const { image, imageAlt, eager = false, class: className } = Astro.props;
 const lang = defaultLang;
 ---
 
-<div class:list={["relative grid place-items-center overflow-hidden bg-neutral-900", className]}>
+<div class:list={["relative aspect-21/9 overflow-hidden bg-neutral-900", className]}>
   {
-    image ? (
+    image && (
       <img
-        class="work-media-image size-full object-cover transition-transform duration-500 motion-reduce:transition-none"
+        class="work-media-image absolute inset-0 size-full object-cover transition-transform duration-500 motion-reduce:transition-none"
         src={image}
         alt={imageAlt?.[lang] ?? ""}
         data-i18n-map-attr={imageAlt ? "alt" : undefined}
@@ -26,11 +25,7 @@ const lang = defaultLang;
         loading={eager ? "eager" : "lazy"}
         decoding="async"
       />
-    ) : (
-      <span class="relative z-1 font-display text-5xl leading-none text-white/10" aria-hidden="true">
-        {number}
-      </span>
     )
   }
-  <span class="pointer-events-none absolute inset-0 bg-grain opacity-20" aria-hidden="true"></span>
+  <span class="grain-shift pointer-events-none absolute inset-0" aria-hidden="true"></span>
 </div>

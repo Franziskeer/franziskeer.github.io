@@ -9,7 +9,6 @@ const en = {
   'loader.label': 'Loading page',
   'work.pageTitle': 'Work — Fran Piñero',
   'work.description': 'Selected work, experience, and skills from Fran Piñero — software engineer building web and mobile products.',
-  'work.eyebrow': 'Selected work',
   'work.title': 'Work',
   'work.intro': 'I design and build web and mobile products — from messy business problems to interfaces people actually use. Seven years shipping full-stack software.',
   'work.focus': 'Web · Mobile · Full-stack',
