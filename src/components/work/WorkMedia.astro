@@ -13,11 +13,11 @@ const { image, imageAlt, eager = false, class: className } = Astro.props;
 const lang = defaultLang;
 ---
 
-<div class:list={["aspect-21/9 size-full", className]}>
+<div class:list={["aspect-21/9 size-full overflow-hidden rounded-xl", className]}>
   {
     image && (
       <img
-        class="rounded-xl"
+        class="size-full rounded-xl object-cover transition-transform duration-500 ease-out group-hover:scale-[1.07] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
         src={image}
         alt={imageAlt?.[lang] ?? ""}
         data-i18n-map-attr={imageAlt ? "alt" : undefined}

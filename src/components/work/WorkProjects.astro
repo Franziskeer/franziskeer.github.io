@@ -12,7 +12,7 @@ const t = ui[defaultLang];
     {t["work.projects.title"]}
   </Header>
 
-  <ol class="grid gap-8 list-none p-0 m-0">
+  <ol class="grid list-none p-0 m-0">
     {projects.map((project, index) => <WorkProjectItem {...project} index={index} />)}
   </ol>
 </section>

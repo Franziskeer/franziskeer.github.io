@@ -1,5 +1,5 @@
 ---
-import { techIcon } from "../../content/skillIcons";
+import { iconifyIcon } from "../../content/skillIcons";
 
 type Props = {
   name: string;
@@ -7,7 +7,7 @@ type Props = {
 };
 
 const { name, class: className } = Astro.props;
-const icon = techIcon(name);
+const icon = iconifyIcon(name);
 ---
 
 {

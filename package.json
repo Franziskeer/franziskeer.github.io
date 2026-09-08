@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@astrojs/react": "^6.0.4",
+    "@iconify-json/iconoir": "^1.2.11",
     "@iconify-json/simple-icons": "^1.2.95",
     "@iconify/utils": "^3.1.7",
     "@react-three/drei": "^10.7.8",
@@ -21,7 +22,6 @@
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.5",
     "astro": "^7.2.4",
-    "iconoir-react": "^7.12.1",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "tailwindcss": "^4.3.3",

@@ -1,6 +1,6 @@
 ---
-import { Menu, Xmark } from "iconoir-react";
 import { defaultLang, ui } from "../../lang";
+import Icon from "./Icon.astro";
 
 const links = [
   { href: "/work", key: "home.cta.work" },
@@ -8,41 +8,39 @@ const links = [
 ] as const;
 ---
 
-<nav aria-label="Primary">
-  <header class="nav-header">
-    <div class="nav-bar page-gutter-x">
-      <a
-        href="/"
-        class="nav-logo"
-        aria-label={ui[defaultLang]["site.title"]}
-      >
-        <img
-          src="/favicon.svg"
-          alt=""
-          width="64"
-          height="64"
-          class="nav-logo-img"
-          decoding="async"
-        />
-      </a>
+<header class="nav-header">
+  <nav class="nav-bar page-gutter-x" aria-label="Primary">
+    <a
+      href="/"
+      class="nav-logo"
+      aria-label={ui[defaultLang]["site.title"]}
+    >
+      <img
+        src="/favicon.svg"
+        alt=""
+        width="64"
+        height="64"
+        class="nav-logo-img"
+        decoding="async"
+      />
+    </a>
 
-      <!-- Reserva el hueco del toggle (el botón real es fixed + mix-blend). -->
-      <span class="nav-toggle-spacer" aria-hidden="true"></span>
-    </div>
-  </header>
+    <!-- Reserva el hueco del toggle (el botón real es fixed + mix-blend). -->
+    <span class="nav-toggle-spacer" aria-hidden="true"></span>
+  </nav>
+</header>
 
-  <ul class="nav-desktop page-gutter-x font-display">
-    {
-      links.map(({ href, key }) => (
-        <li>
-          <a href={href} data-i18n={key} class="nav-desktop-link mix-blend-difference">
-            {ui[defaultLang][key]}
-          </a>
-        </li>
-      ))
-    }
-  </ul>
-</nav>
+<ul class="nav-desktop page-gutter-x font-display">
+  {
+    links.map(({ href, key }) => (
+      <li>
+        <a href={href} data-i18n={key} class="nav-desktop-link">
+          {ui[defaultLang][key]}
+        </a>
+      </li>
+    ))
+  }
+</ul>
 
 <button
   type="button"
@@ -54,10 +52,10 @@ const links = [
   aria-label={ui[defaultLang]["nav.menu"]}
 >
   <span data-nav-icon="open" class="nav-toggle-icon">
-    <Menu width={32} height={32} strokeWidth={1.6} aria-hidden />
+    <Icon name="iconoir:menu" class="size-8" />
   </span>
   <span data-nav-icon="close" class="nav-toggle-icon nav-toggle-icon--close" aria-hidden="true">
-    <Xmark width={32} height={32} strokeWidth={1.6} aria-hidden />
+    <Icon name="iconoir:xmark" class="size-8" />
   </span>
 </button>
 
@@ -297,20 +295,20 @@ const links = [
       position: fixed;
       top: 0;
       right: 0;
+      z-index: 50;
       display: flex;
       height: var(--height-nav);
       align-items: center;
       gap: 2rem;
+      color: white;
+      mix-blend-mode: difference;
     }
 
     .nav-desktop-link {
-      position: relative;
-      z-index: 50;
       font-size: var(--text-sm);
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: white;
-      mix-blend-mode: difference;
       transition: opacity 300ms;
     }
 

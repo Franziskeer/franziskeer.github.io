@@ -17,6 +17,7 @@ export type WorkProject = {
     outcome: LocalizedString;
   };
   links?: WorkLink[];
+  github?: string;
   image?: string;
   imageAlt?: LocalizedString;
 };
@@ -72,6 +73,7 @@ export const projects = [
       en: "Two smartphone mockups of the expense tracker. Monthly dashboard and spending history.",
       es: "Dos mockups de móvil de la app de gastos. Dashboard del mes e historial.",
     },
+    github: "https://github.com/Franziskeer/finance-tracker-mobile",
   },
   {
     id: "coffizine",
@@ -103,6 +105,7 @@ export const projects = [
       en: "Coffizine wordmark beside a dark editorial still of the brand cup",
       es: "Logotipo de Coffizine junto a un bodegón editorial oscuro de la taza de la marca",
     },
+    github: "https://github.com/Franziskeer/coffizine",
   },
 ] as const satisfies readonly WorkProject[];
 

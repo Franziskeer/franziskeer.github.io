@@ -10,6 +10,7 @@ const es = {
   'work.pageTitle': 'Proyectos de Fran Piñero',
   'work.description': 'Proyectos seleccionados, experiencia y tecnologías de Fran Piñero. Ingeniero de software que construye productos web y móviles.',
   'work.projects.title': 'Proyectos',
+  'work.projects.cta': 'Más información',
   'work.experience.title': 'Experiencia',
   'work.skills.title': 'Tecnologías',
   'work.contact.title': 'Hablemos',
@@ -23,6 +24,7 @@ const es = {
   'work.case.outcome': 'Resultado',
   'work.case.back': 'Volver a proyectos',
   'work.case.next': 'Siguiente',
+  'work.case.github': 'Ver en GitHub',
 } as const
 
 export default es

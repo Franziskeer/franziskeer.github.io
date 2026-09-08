@@ -1,7 +1,13 @@
-import { icons } from "@iconify-json/simple-icons";
+import { icons as iconoirIcons } from "@iconify-json/iconoir";
+import { icons as simpleIcons } from "@iconify-json/simple-icons";
 import { getIconData, iconToSVG } from "@iconify/utils";
 
 const PREFIX = "simple-icons:";
+
+const collections = {
+  "simple-icons": simpleIcons,
+  iconoir: iconoirIcons,
+};
 
 const aliases: Record<string, string> = {
   typescript: "typescript",
@@ -67,11 +73,8 @@ function iconName(tech: string) {
   return aliases[tech.toLowerCase().replace(/[^a-z0-9]+/g, "")];
 }
 
-export function techIcon(tech: string): TechIcon | undefined {
-  const name = iconName(tech);
-  if (!name) return undefined;
-
-  const data = getIconData(icons, name);
+function toSvg(collection: (typeof collections)[keyof typeof collections], name: string): TechIcon | undefined {
+  const data = getIconData(collection, name);
   if (!data) return undefined;
 
   const svg = iconToSVG(data);
@@ -79,4 +82,23 @@ export function techIcon(tech: string): TechIcon | undefined {
     body: svg.body,
     viewBox: svg.attributes.viewBox,
   };
+}
+
+/** Iconify id (`iconoir:menu`) or a simple-icons alias (`react`). */
+export function iconifyIcon(id: string): TechIcon | undefined {
+  if (id.includes(":")) {
+    const [prefix, ...rest] = id.split(":");
+    const name = rest.join(":");
+    const collection = collections[prefix as keyof typeof collections];
+    if (!collection || !name) return undefined;
+    return toSvg(collection, name);
+  }
+
+  return techIcon(id);
+}
+
+export function techIcon(tech: string): TechIcon | undefined {
+  const name = iconName(tech);
+  if (!name) return undefined;
+  return toSvg(simpleIcons, name);
 }

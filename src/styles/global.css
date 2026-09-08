@@ -54,7 +54,7 @@
   padding-inline: var(--spacing-page-gutter-x);
   /* Clears the fixed nav (padding-block + logo) plus a bit of air. */
   padding-block-start: calc(var(--height-nav) + var(--spacing-nav-clearance));
-  padding-block-end: 2rem;
+  padding-block-end: 3rem;
 }
 
 @utility text-grain {
