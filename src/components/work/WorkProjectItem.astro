@@ -15,8 +15,8 @@ const flip = index % 2 === 1;
 const lang = defaultLang;
 ---
 
-<li id={id} class="border-b border-black/20 last:border-b-0">
-  <a class="group py-8 grid xl:grid-cols-10 gap-4 xl:gap-8" href={projectPath(id)}>
+<li id={id}>
+  <a class="group grid xl:grid-cols-10 gap-4 xl:gap-8" href={projectPath(id)}>
     <WorkMedia image={image} imageAlt={imageAlt} class="xl:col-span-4" class:list={[flip && "xl:order-last"]} />
 
     <div class="flex flex-col gap-4 xl:col-span-6">
