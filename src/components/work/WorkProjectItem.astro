@@ -8,7 +8,7 @@ type Props = WorkProject & {
   index: number;
 };
 
-const { id, title, year, category, stack, summary, image, imageAlt, index } = Astro.props;
+const { id, title, stack, summary, image, imageAlt, index } = Astro.props;
 
 const flip = index % 2 === 1;
 const lang = defaultLang;
@@ -33,10 +33,6 @@ const lang = defaultLang;
       </h2>
       <p class="relative mt-3 max-w-[42ch] text-sm text-secondary" data-i18n-map={i18nMap(summary)}>
         {summary[lang]}
-      </p>
-      <p class="relative mt-3 flex flex-wrap gap-x-5 gap-y-1 text-xs opacity-65">
-        <span>{year}</span>
-        <span data-i18n-map={i18nMap(category)}>{category[lang]}</span>
       </p>
       {stack.length > 0 && (
         <div class="relative mt-3 flex flex-wrap gap-1">

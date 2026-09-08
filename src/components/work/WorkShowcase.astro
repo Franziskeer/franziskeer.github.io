@@ -11,23 +11,14 @@ const t = ui[defaultLang];
 
 <div>
   <section aria-labelledby="work-title">
-    <header class="mb-8 grid items-end gap-6 md:mb-12 md:grid-cols-[minmax(0,1.1fr)_minmax(18rem,0.9fr)] md:gap-10 xl:mb-14">
+    <header>
       <h1
         id="work-title"
-        class="m-0 font-display text-[clamp(3.5rem,14vw,8rem)] leading-[0.8] uppercase text-grain"
+        class="m-0 font-display text-5xl/normal xl:text-9xl/normal uppercase text-grain"
         data-i18n="work.title"
       >
         {t["work.title"]}
       </h1>
-
-      <div class="max-w-[46ch] md:justify-self-end">
-        <p class="m-0" data-i18n="work.intro">
-          {t["work.intro"]}
-        </p>
-        <p class="mt-3 text-xs uppercase tracking-[0.08em] text-secondary" data-i18n="work.focus">
-          {t["work.focus"]}
-        </p>
-      </div>
     </header>
 
     <ol class="m-0 grid list-none p-0">

@@ -8,12 +8,9 @@ export type WorkLink = {
 
 export type WorkProject = {
   id: string;
-  year: string;
   title: LocalizedString;
-  category: LocalizedString;
   stack: string[];
   summary: LocalizedString;
-  role: LocalizedString;
   sections: {
     problem: LocalizedString;
     approach: LocalizedString;
@@ -30,6 +27,7 @@ export type WorkExperience = {
   role: LocalizedString;
   years: string;
   summary: LocalizedString;
+  points?: LocalizedString[];
   stack: string[];
 };
 
@@ -46,76 +44,58 @@ export function getNextProject(id: string) {
 export const projects = [
   {
     id: "finance-tracker-mobile",
-    year: "2026",
     title: {
-      en: "Personal Expense Tracker",
-      es: "Seguimiento de gastos personales",
+      en: "Expense Tracker",
+      es: "Control de gastos",
     },
-    category: {
-      en: "Mobile app / Finance",
-      es: "Aplicación móvil / Finanzas",
-    },
-    stack: ["React Native", "TypeScript", "Tailwind CSS", "Expo"],
+    stack: ["React Native", "TypeScript", "Tailwind CSS", "Expo", "Firestore"],
     summary: {
-      en: "A calm mobile tracker for daily spend — fast to log, clear to read, built as a product I actually use.",
-      es: "Un tracker móvil sobrio para el gasto diario: rápido de anotar, claro de leer, hecho como un producto que uso de verdad.",
-    },
-    role: {
-      en: "Product design & development",
-      es: "Diseño de producto y desarrollo",
+      en: "An app for shared household expenses. Back from the shops, log it in 5 seconds. At month's end you take stock. Nothing more.",
+      es: "App para los gastos compartidos de casa. Sales de la compra, lo anotas en 5 segundos. A fin de mes haces balance. Ni más ni menos.",
     },
     sections: {
       problem: {
-        en: "Most expense apps are noisy, subscription-heavy, or too slow for logging a coffee on the go. I wanted something quiet enough to become a habit.",
-        es: "La mayoría de apps de gastos son ruidosas, van de suscripción o son demasiado lentas para anotar un café al vuelo. Quería algo lo bastante silencioso como para volverse hábito.",
+        en: "Most expense apps are noisy, gated behind a subscription, or too slow for a coffee on the go. I wanted something quiet enough to become a habit.",
+        es: "Casi todas las apps de gastos hacen ruido, van de suscripción o son demasiado lentas para anotar un café al vuelo. Quería algo lo bastante silencioso como para volverse hábito.",
       },
       approach: {
-        en: "I built a React Native client with Expo, TypeScript, and Tailwind, focused on fast capture and a clear monthly picture rather than a wall of charts.",
-        es: "Construí un cliente React Native con Expo, TypeScript y Tailwind, centrado en capturar rápido y ver el mes con claridad, no en una pared de gráficos.",
+        en: "Fast capture first. A clear month second. React Native with Expo, built around those two screens instead of a dashboard for everything. I started with a Google Sheet as the database. Then I moved to Firestore so the app could scale if it needed to.",
+        es: "Primero capturar rápido. Después entender el mes. React Native con Expo, pensada en torno a esas dos pantallas en lugar de un dashboard para todo. Al principio usaba una hoja de Google Sheets como base de datos. Di el salto a Firestore para poder escalar la app si hiciera falta.",
       },
       outcome: {
-        en: "A working personal finance app — current flagship for how I ship product-quality mobile interfaces from a messy everyday problem.",
-        es: "Una app de finanzas personales que funciona: la pieza actual de cómo convierto un problema cotidiano en una interfaz móvil de calidad de producto.",
+        en: "An app I use every day, for a fair split of household expenses based on what each person contributes. Fast to log, clear to read, no noise.",
+        es: "Una app que utilizo en mi día a día y que permite un reparto justo de los gastos de la casa en base a la aportación de cada uno. Rápida de anotar, clara de leer y sin ruido.",
       },
     },
     image: "/work/finance-tracker.webp",
     imageAlt: {
-      en: "Two smartphone mockups of the expense tracker: monthly dashboard and spending history",
-      es: "Dos mockups de móvil del tracker de gastos: dashboard del mes e historial",
+      en: "Two smartphone mockups of the expense tracker. Monthly dashboard and spending history.",
+      es: "Dos mockups de móvil de la app de gastos. Dashboard del mes e historial.",
     },
   },
   {
     id: "coffizine",
-    year: "2019",
     title: {
       en: "Coffizine",
       es: "Coffizine",
     },
-    category: {
-      en: "Final year project",
-      es: "Proyecto de fin de carrera",
-    },
     stack: ["Laravel", "Vue.js (Inertia.js)", "Tailwind CSS", "Docker"],
     summary: {
-      en: "A magazine-style platform for coffee culture — editorial reading experience on a full-stack Laravel and Vue system.",
-      es: "Una plataforma con aire de revista sobre cultura cafetera: lectura editorial sobre un sistema full-stack Laravel y Vue.",
-    },
-    role: {
-      en: "Full-stack developer",
-      es: "Desarrollador full stack",
+      en: "A final year degree project. A study of native HTML components applied to an interactive web form generator and response collection.",
+      es: "Trabajo de fin de grado. Un estudio de los componentes nativos HTML aplicado a un generador interactivo de formularios web y a la recolección de respuestas.",
     },
     sections: {
       problem: {
-        en: "Coffee writing lived in scattered blogs and social feeds. The brief was an editorial home with a designed front and a real publishing back office.",
-        es: "Los textos sobre café vivían en blogs sueltos y redes. El encargo era una casa editorial: un frente diseñado y un back office de publicación de verdad.",
+        en: "The final year degree project was a study of native HTML form components. The product was an interactive generator and response collection. The name coffee + officine is because you can build advanced forms in the time it takes to drink a coffee.",
+        es: "El Trabajo de Final de Grado era un estudio de los componentes nativos HTML para formularios. El producto final fue un generador interactivo y recolección de respuestas. El nombre coffee + officine se debe a que puedes construir formularios avanzados en lo que te tomas un café.",
       },
       approach: {
-        en: "Laravel and Vue with Inertia, Tailwind, and Docker — a CMS-backed reading experience where the backend and the visual system were designed together.",
-        es: "Laravel y Vue con Inertia, Tailwind y Docker: una experiencia de lectura con CMS, diseñando a la vez el backend y el sistema visual.",
+        en: "Laravel, Vue and Inertia as one system. The form generator and response collection were designed together. The same app to build, preview and store, with API integration, security best practices and a design system applied throughout. Then shipped with Docker.",
+        es: "Laravel, Vue e Inertia como un solo sistema. El generador de formularios y la recolección de respuestas se diseñaron juntas. La misma app para construir, previsualizar y guardar, con integración de API, buenas prácticas de seguridad y un sistema de diseño aplicado. Todo se publicó con Docker.",
       },
       outcome: {
-        en: "Degree project that still stands for how I connect server-side systems with visual craft — not just screens, and not just APIs.",
-        es: "Proyecto de fin de carrera que sigue representando cómo conecto sistemas de servidor con oficio visual: no solo pantallas, ni solo APIs.",
+        en: "I shipped it as my final year degree project. A usable product to generate, preview and collect responses. Not a mockup.",
+        es: "Lo entregué como Trabajo de Fin de Grado. Un producto usable para generar, previsualizar y recoger respuestas. No una maqueta.",
       },
     },
     image: "/work/coffizine.webp",
@@ -129,7 +109,7 @@ export const projects = [
 export const experience = [
   {
     id: "work-at-necomplus",
-    years: "2023—2026",
+    years: "2023-2026",
     company: {
       en: "Group Necomplus (Member of ASSEE)",
       es: "Grupo Necomplus (Miembro de ASSEE)",
@@ -139,14 +119,44 @@ export const experience = [
       es: "Desarrollador de transformación digital",
     },
     summary: {
-      en: "Building and evolving internal digital products — turning operational processes into software that teams can actually ship and use.",
-      es: "Construir y hacer evolucionar productos digitales internos: convertir procesos operativos en software que los equipos pueden entregar y usar.",
+      en: "In the digital transformation and innovation team we improved internal processes and turned them into software teams can actually use.",
+      es: "En el departamento de transformación digital e innovación mejorábamos los procesos internos y los convertíamos en software.",
     },
-    stack: [],
+    points: [
+      {
+        en: "Conversational AI chatbots and voicebots for call center services.",
+        es: "Chatbots y voicebots conversacionales con IA para los servicios de call center.",
+      },
+      {
+        en: "Lead management automations for marketing.",
+        es: "Automatismos para la gestión de leads de marketing.",
+      },
+      {
+        en: "Internal tools to streamline operations. From analysing the need to defining the technical solution.",
+        es: "Herramientas internas para optimizar procesos operativos. Del análisis de la necesidad a la definición de la solución técnica.",
+      },
+      {
+        en: "Frontend apps for corporate environments, integrating services, APIs and internal platforms.",
+        es: "Aplicaciones frontend para entornos corporativos, con integración de servicios, APIs y plataformas.",
+      },
+      {
+        en: "Cloud delivery on Azure with Docker and CI/CD.",
+        es: "Despliegue en la nube en Azure con Docker y CI/CD.",
+      },
+      {
+        en: "Client builds and proofs of concept.",
+        es: "Desarrollos y pruebas de concepto para clientes.",
+      },
+      {
+        en: "Developer assist workflows with agentic AI, oriented toward spec driven development.",
+        es: "Metodologías de ayuda al desarrollador con IA agéntica, orientadas a Spec Driven Development.",
+      },
+    ],
+    stack: ["TypeScript", "React", "Node.js", "Azure", "Docker", "OpenAI"],
   },
   {
     id: "work-at-posiziona",
-    years: "2019—2023",
+    years: "2019-2023",
     company: {
       en: "Posiziona Tecnologías de la Información",
       es: "Posiziona Tecnologías de la Información",
@@ -156,10 +166,32 @@ export const experience = [
       es: "Desarrollador full stack",
     },
     summary: {
-      en: "Full-stack delivery across client web applications — from data and services through to the interfaces people work with every day.",
-      es: "Entrega full-stack en aplicaciones web de cliente: de los datos y servicios hasta las interfaces con las que se trabaja cada día.",
+      en: "Consultancy where I built management apps for clients with full stack development in Laravel and Vue.js.",
+      es: "Consultora en la que construí aplicaciones de gestión full stack en Laravel y Vue.js para clientes.",
     },
-    stack: [],
+    points: [
+      {
+        en: "Management applications with Laravel and Vue.js.",
+        es: "Desarrollo de aplicaciones de gestión con Laravel y Vue.js.",
+      },
+      {
+        en: "I introduced Vue.js and Docker to ease development and deployment workflows.",
+        es: "Introduje Vue.js y Docker para facilitar los flujos de desarrollo y despliegue.",
+      },
+      {
+        en: "Development and maintenance of ecommerce projects with PrestaShop and WordPress.",
+        es: "Desarrollo y mantenimiento de proyectos de comercio electrónico con PrestaShop y WordPress.",
+      },
+      {
+        en: "Admin panel interface design.",
+        es: "Diseño de interfaces de paneles de administración.",
+      },
+      {
+        en: "Database work and Docker environment management.",
+        es: "Manejo de bases de datos y gestión de entornos Docker.",
+      },
+    ],
+    stack: ["Laravel", "PHP", "Vue.js", "Docker", "PrestaShop", "WordPress"],
   },
 ] as const satisfies readonly WorkExperience[];
 

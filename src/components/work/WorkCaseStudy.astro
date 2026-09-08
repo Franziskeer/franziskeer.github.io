@@ -12,15 +12,10 @@ type Props = {
 const { project, next } = Astro.props;
 const lang = defaultLang;
 const t = ui[lang];
-const { title, year, category, stack, role, sections, links, image, imageAlt } = project;
+const { title, stack, sections, links, image, imageAlt } = project;
 ---
 
 <article>
-  <p class="m-0 mb-3 flex flex-wrap gap-x-5 gap-y-1 text-xs text-accent md:mb-4">
-    <span>{year}</span>
-    <span data-i18n-map={i18nMap(category)}>{category[lang]}</span>
-  </p>
-
   <h1
     class="relative z-1 m-0 max-w-[16ch] font-display text-4xl/[0.92] uppercase text-white mix-blend-difference md:text-5xl xl:text-[clamp(3.5rem,6vw,5.5rem)]"
     data-i18n-map={i18nMap(title)}
@@ -35,32 +30,26 @@ const { title, year, category, stack, role, sections, links, image, imageAlt } =
     eager
   />
 
-  <div class="mt-8 grid gap-5 md:mt-10 md:grid-cols-[auto_1fr] md:items-center md:gap-8">
-    <dl class="m-0">
-      <div class="flex flex-wrap gap-x-4 gap-y-2 text-sm">
-        <dt class="text-xs font-semibold uppercase tracking-[0.06em] text-secondary" data-i18n="work.case.role">
-          {t["work.case.role"]}
-        </dt>
-        <dd class="m-0" data-i18n-map={i18nMap(role)}>{role[lang]}</dd>
-      </div>
-    </dl>
-    {stack.length > 0 && (
-      <div class="flex flex-wrap gap-1 md:justify-end">
-        {stack.map((tech) => <Badge>{tech}</Badge>)}
-      </div>
-    )}
-    {links && links.length > 0 && (
-      <ul class="m-0 flex list-none flex-wrap gap-4 p-0 text-sm md:col-span-2">
-        {links.map((link) => (
-          <li>
-            <a class="text-accent" href={link.href} rel="noreferrer" target="_blank" data-i18n-map={i18nMap(link.label)}>
-              {link.label[lang]}
-            </a>
-          </li>
-        ))}
-      </ul>
-    )}
-  </div>
+  {(stack.length > 0 || (links && links.length > 0)) && (
+    <div class="mt-8 grid gap-5 md:mt-10">
+      {stack.length > 0 && (
+        <div class="flex flex-wrap gap-1">
+          {stack.map((tech) => <Badge>{tech}</Badge>)}
+        </div>
+      )}
+      {links && links.length > 0 && (
+        <ul class="m-0 flex list-none flex-wrap gap-4 p-0 text-sm">
+          {links.map((link) => (
+            <li>
+              <a class="text-accent" href={link.href} rel="noreferrer" target="_blank" data-i18n-map={i18nMap(link.label)}>
+                {link.label[lang]}
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  )}
 
   <div class="mt-10 grid gap-12 md:mt-14 md:grid-cols-3 md:gap-8 xl:mt-16 xl:gap-12">
     <section class="grid content-start gap-3">

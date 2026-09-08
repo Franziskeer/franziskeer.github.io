@@ -2,7 +2,7 @@
 
 ## CSS and Tailwind (hybrid)
 
-Prefer a hybrid styling approach. It is a default, not a hard rule — bend it when doing so clearly improves clarity or reuse.
+Prefer a hybrid styling approach. It is a default, not a hard rule - bend it when doing so clearly improves clarity or reuse.
 
 ### Where styles live
 

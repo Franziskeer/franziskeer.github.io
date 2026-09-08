@@ -36,7 +36,7 @@
   --spacing-page-gutter-x: 1.25rem;
   --spacing-page-gutter-x-sm: 2rem;
   --spacing-nav-clearance: 0.25rem;
-  --width-page-shell: 1920px;
+  --width-page-shell: 1080px;
 }
 
 @utility page-gutter-x {
