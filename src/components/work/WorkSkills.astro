@@ -1,6 +1,8 @@
 ---
 import { SKILL_EXPERTISE_MAX, skillsByGroup } from "../../content/skills";
 import { defaultLang, i18nMap, ui } from "../../lang";
+import Header from "../ui/Header.astro";
+import Icon from "../ui/Icon.astro";
 
 const groups = skillsByGroup();
 const lang = defaultLang;
@@ -14,25 +16,28 @@ function expertiseLabel(name: string, expertise: number) {
 }
 ---
 
-<section class="work-section" aria-labelledby="skills-title">
-  <h2 id="skills-title" class="work-section-title font-display" data-i18n="work.skills.title">
+<section>
+  <Header id="skills-title" data-i18n="work.skills.title">
     {t["work.skills.title"]}
-  </h2>
+  </Header>
 
-  <div class="grid gap-10 md:grid-cols-2 md:gap-x-16 md:gap-y-8 xl:grid-cols-3 xl:gap-x-10">
+  <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
     {groups.map((group) => (
       <div>
-        <h3 class="mb-3 text-xs font-semibold uppercase tracking-[0.08em] text-accent" data-i18n-map={i18nMap(group.label)}>
+        <h3 class="text-xs font-semibold uppercase text-accent" data-i18n-map={i18nMap(group.label)}>
           {group.label[lang]}
         </h3>
-        <ul class="m-0 grid list-none p-0">
+
+        <ul class="list-none">
           {group.skills.map((skill) => {
             const level = Math.min(SKILL_EXPERTISE_MAX, Math.max(0, skill.expertise));
             const label = expertiseLabel(skill.name, level);
-
             return (
-              <li class="flex items-center justify-between gap-4 border-b border-black/20 py-2">
-                <span class="text-sm">{skill.name}</span>
+              <li class="flex items-center justify-between gap-4 border-b last:border-b-0 border-black/20 py-2">
+                <span class="inline-flex items-center gap-2 text-sm">
+                  <Icon name={skill.id} class="size-3.5 shrink-0" />
+                  <span class="truncate">{skill.name}</span>
+                </span>
                 <div
                   class="flex shrink-0 gap-[0.28rem]"
                   role="img"

@@ -6,7 +6,7 @@ type Props = {
   constrain?: boolean
 }
 
-const { class: className = '', as: Tag = 'main', constrain = true } = Astro.props
+const { class: className = '', as: Tag = 'main', constrain = true} = Astro.props
 ---
 
 <Tag class:list={[constrain && 'page-shell', className]}>

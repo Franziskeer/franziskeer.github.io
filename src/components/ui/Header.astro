@@ -1,0 +1,20 @@
+---
+import type { MessageKey } from "../../lang";
+
+type Props = {
+  id?: string;
+  "data-i18n"?: MessageKey;
+};
+
+const { id, "data-i18n": dataI18n } = Astro.props;
+---
+
+<header>
+  <h1
+    id={id}
+    data-i18n={dataI18n}
+    class="mb-4 font-display text-5xl/normal xl:text-6xl/normal uppercase text-letter"
+  >
+    <slot />
+  </h1>
+</header>

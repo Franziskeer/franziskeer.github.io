@@ -14,7 +14,7 @@
   --text-4xl: clamp(1.875rem, 1.2rem + 2.2vw, 3rem);
   --text-5xl: clamp(2.25rem, 1.3rem + 3vw, 4rem);
 
-  --color-background: #f0f0f0;
+  --color-background: var(--color-neutral-50);
   --color-text: #040404;
   --color-primary: #040404;
   --color-secondary: #3f3f3f;
@@ -54,16 +54,7 @@
   padding-inline: var(--spacing-page-gutter-x);
   /* Clears the fixed nav (padding-block + logo) plus a bit of air. */
   padding-block-start: calc(var(--height-nav) + var(--spacing-nav-clearance));
-  padding-block-end: 3rem;
-
-  @media (width >= 40rem) {
-    padding-inline: var(--spacing-page-gutter-x-sm);
-    padding-block-end: 5rem;
-  }
-
-  @media (width >= 80rem) {
-    padding-block-end: 7rem;
-  }
+  padding-block-end: 2rem;
 }
 
 @utility text-grain {
@@ -77,11 +68,26 @@
   -webkit-background-clip: text;
 }
 
+@utility text-letter {
+  -webkit-mask-image: url("/mask.png");
+  mask-image: url("/mask.png");
+  -webkit-mask-size: 420px;
+  mask-size: 420px;
+  -webkit-mask-position: center;
+  mask-position: center;
+  mask-mode: luminance;
+}
+
 @utility bg-grain {
   background-image: url("/grain.svg");
   background-size: 160px;
   background-position: center;
   background-repeat: repeat;
+}
+
+@utility bg-dotted {
+  background-image: radial-gradient(#0F0F0F55 1px, transparent 2px);
+  background-size: 64px 64px;
 }
 
 @utility grain-shift {
@@ -105,11 +111,6 @@
 
 @utility work-rule {
   border-color: rgb(0 0 0 / 0.25);
-}
-
-@utility work-section {
-  border-top: 1px solid rgb(0 0 0 / 0.25);
-  padding-block-start: var(--spacing-work-section);
 }
 
 @utility work-section-title {

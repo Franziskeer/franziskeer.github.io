@@ -2,6 +2,7 @@
 import type { WorkExperience } from "../../content/work";
 import { defaultLang, i18nMap, ui } from "../../lang";
 import Badge from "../ui/Badge.astro";
+import Header from "../ui/Header.astro";
 
 type Props = {
   items: readonly WorkExperience[];
@@ -12,35 +13,35 @@ const lang = defaultLang;
 const t = ui[lang];
 ---
 
-<section class="work-section" aria-labelledby="experience-title">
-  <h2 id="experience-title" class="work-section-title font-display" data-i18n="work.experience.title">
+<section>
+  <Header id="experience-title" data-i18n="work.experience.title">
     {t["work.experience.title"]}
-  </h2>
+  </Header>
 
   <ol class="m-0 grid list-none p-0">
     {items.map((item) => (
-      <li class="grid gap-1 border-b work-rule py-5 first:pt-0 last:border-b-0 last:pb-0 md:py-6 xl:grid-cols-[8rem_1fr] xl:gap-x-16 xl:py-8" id={item.id}>
-        <p class="m-0 text-xs text-accent">{item.years}</p>
-        <div class="grid gap-1">
-          <h3 class="m-0 font-display text-lg uppercase xl:text-xl" data-i18n-map={i18nMap(item.company)}>
+      <li class="grid gap-2 xl:grid-cols-[auto_1fr] border-b last:border-b-0 border-black/20 py-6 first:pt-0 last:pb-0" id={item.id}>
+        <p class="xl:px-4 py-2 text-xs text-accent">{item.years}</p>
+        <div class="space-y-2">
+          <h3 class="font-display text-lg uppercase" data-i18n-map={i18nMap(item.company)}>
             {item.company[lang]}
           </h3>
-          <p class="m-0 text-xs" data-i18n-map={i18nMap(item.role)}>
+          <h4 class="text-accent text-xs uppercase" data-i18n-map={i18nMap(item.role)}>
             {item.role[lang]}
-          </p>
-          <p class="mt-2 max-w-[62ch] text-sm text-secondary" data-i18n-map={i18nMap(item.summary)}>
+          </h4>
+          <p class="text-sm text-secondary" data-i18n-map={i18nMap(item.summary)}>
             {item.summary[lang]}
           </p>
           {item.points && item.points.length > 0 && (
-            <ul class="experience-points">
+            <ul class="text-sm text-secondary list-disc list-outside pl-4">
               {item.points.map((point) => (
-                <li data-i18n-map={i18nMap(point)}>{point[lang]}</li>
+                <li class="py-1" data-i18n-map={i18nMap(point)}>{point[lang]}</li>
               ))}
             </ul>
           )}
           {item.stack.length > 0 && (
-            <div class="mt-3 flex flex-wrap gap-1">
-              {item.stack.map((tech) => <Badge>{tech}</Badge>)}
+            <div class="mt-3 flex flex-wrap gap-1.5">
+              {item.stack.map((tech) => <Badge tech={tech}>{tech}</Badge>)}
             </div>
           )}
         </div>
@@ -48,17 +49,3 @@ const t = ui[lang];
     ))}
   </ol>
 </section>
-
-<style>
-  .experience-points {
-    margin: 0.75rem 0 0;
-    max-width: 62ch;
-    padding-left: 1.15rem;
-    color: var(--color-secondary);
-    font-size: var(--text-sm);
-  }
-
-  .experience-points li + li {
-    margin-top: 0.35rem;
-  }
-</style>

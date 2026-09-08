@@ -14,97 +14,26 @@ const flip = index % 2 === 1;
 const lang = defaultLang;
 ---
 
-<li class="border-b work-rule last:border-b-0" id={id}>
-  <a
-    class:list={[
-      "work-item group grid items-center gap-6 py-8 text-inherit no-underline outline-offset-4 focus-visible:outline-2 focus-visible:outline-accent md:gap-8 md:py-10 xl:gap-16 xl:py-12",
-      flip
-        ? "xl:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]"
-        : "xl:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]",
-    ]}
-    href={projectPath(id)}
-  >
-    <div class="relative flex flex-col pr-12">
-      <h2
-        class="work-item-title m-0 max-w-[16ch] font-display text-3xl/[0.95] uppercase md:text-4xl"
-        data-i18n-map={i18nMap(title)}
-      >
+<li id={id}>
+  <a class="group grid xl:grid-cols-10 gap-8" href={projectPath(id)}>
+    <WorkMedia image={image} imageAlt={imageAlt} class="xl:col-span-4" class:list={[flip && "xl:order-last"]} />
+
+    <div class="flex flex-col gap-4 xl:col-span-6">
+      <h2 class="font-display text-xl xl:text-3xl" data-i18n-map={i18nMap(title)}>
         {title[lang]}
       </h2>
-      <p class="relative mt-3 max-w-[42ch] text-sm text-secondary" data-i18n-map={i18nMap(summary)}>
+      <p class="relative text-sm text-secondary" data-i18n-map={i18nMap(summary)}>
         {summary[lang]}
       </p>
-      {stack.length > 0 && (
-        <div class="relative mt-3 flex flex-wrap gap-1">
-          {stack.map((tech) => <Badge>{tech}</Badge>)}
-        </div>
-      )}
-      <span class="work-item-arrow" aria-hidden="true">↗</span>
+      {
+        stack.length > 0 && (
+          <div class="flex flex-wrap gap-1">
+            {stack.map((tech) => (
+              <Badge tech={tech}>{tech}</Badge>
+            ))}
+          </div>
+        )
+      }
     </div>
-
-    <WorkMedia
-      class:list={[
-        "max-xl:work-bleed",
-        flip && "xl:order-first",
-      ]}
-      image={image}
-      imageAlt={imageAlt}
-    />
   </a>
 </li>
-
-<style>
-  .work-item-title {
-    transition: transform 250ms ease;
-  }
-
-  .group:hover .work-item-title,
-  .group:focus-visible .work-item-title {
-    transform: translateX(0.35rem);
-  }
-
-  .work-item-arrow {
-    position: absolute;
-    right: 0;
-    bottom: 1rem;
-    display: grid;
-    width: 2.25rem;
-    height: 2.25rem;
-    place-items: center;
-    border: 1px solid var(--color-accent);
-    border-radius: 999px;
-    color: var(--color-accent);
-    transition:
-      transform 250ms ease,
-      background-color 250ms ease,
-      color 250ms ease;
-  }
-
-  .group:hover .work-item-arrow,
-  .group:focus-visible .work-item-arrow {
-    transform: rotate(45deg);
-    background-color: var(--color-accent);
-    color: var(--color-background);
-  }
-
-  .group:hover :global(.work-media-image),
-  .group:focus-visible :global(.work-media-image) {
-    transform: scale(1.03);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .work-item-title,
-    .work-item-arrow {
-      transition: none;
-    }
-
-    .group:hover .work-item-title,
-    .group:focus-visible .work-item-title,
-    .group:hover .work-item-arrow,
-    .group:focus-visible .work-item-arrow,
-    .group:hover :global(.work-media-image),
-    .group:focus-visible :global(.work-media-image) {
-      transform: none;
-    }
-  }
-</style>

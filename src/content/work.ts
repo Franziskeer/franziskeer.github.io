@@ -195,10 +195,22 @@ export const experience = [
   },
 ] as const satisfies readonly WorkExperience[];
 
-export const contactLinks = [
-  {
-    id: "github",
-    href: "https://github.com/franziskeer",
-    label: { en: "GitHub", es: "GitHub" },
-  },
-] as const satisfies readonly WorkLink[];
+export const contact = {
+  channels: [
+    {
+      id: "gmail",
+      href: "mailto:franpial98@gmail.com",
+      handle: "franpial98@gmail.com",
+    },
+    {
+      id: "linkedin",
+      href: "https://www.linkedin.com/in/francisco-pinero-alpanes",
+      handle: "francisco-pinero-alpanes",
+    },
+    {
+      id: "github",
+      href: "https://github.com/franziskeer",
+      handle: "franziskeer",
+    },
+  ],
+} as const;

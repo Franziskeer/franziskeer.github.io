@@ -13,11 +13,11 @@ const { image, imageAlt, eager = false, class: className } = Astro.props;
 const lang = defaultLang;
 ---
 
-<div class:list={["relative aspect-21/9 overflow-hidden bg-neutral-900", className]}>
+<div class:list={["aspect-21/9 size-full", className]}>
   {
     image && (
       <img
-        class="work-media-image absolute inset-0 size-full object-cover transition-transform duration-500 motion-reduce:transition-none"
+        class="rounded-xl"
         src={image}
         alt={imageAlt?.[lang] ?? ""}
         data-i18n-map-attr={imageAlt ? "alt" : undefined}
@@ -27,5 +27,5 @@ const lang = defaultLang;
       />
     )
   }
-  <span class="grain-shift pointer-events-none absolute inset-0" aria-hidden="true"></span>
+  <!-- <span class="grain-shift pointer-events-none absolute inset-0" aria-hidden="true"></span> -->
 </div>

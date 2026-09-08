@@ -1,11 +1,18 @@
 ---
-import Layout from '../layouts/Layout.astro'
-import PageShell from '../components/ui/PageShell.astro'
-import WorkShowcase from '../components/work/WorkShowcase.astro'
+import PageShell from "../components/ui/PageShell.astro";
+import WorkContact from "../components/work/WorkContact.astro";
+import WorkExperience from "../components/work/WorkExperience.astro";
+import WorkProjects from "../components/work/WorkProjects.astro";
+import WorkSkills from "../components/work/WorkSkills.astro";
+import { experience } from "../content/work";
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout titleKey="work.pageTitle" descriptionKey="work.description">
-  <PageShell>
-    <WorkShowcase />
+  <PageShell as="main" class="grid gap-16" flushEnd>
+    <WorkProjects />
+    <WorkExperience items={experience} />
+    <WorkSkills />
   </PageShell>
+  <WorkContact />
 </Layout>

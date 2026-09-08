@@ -1,37 +1,71 @@
 ---
-import { contactLinks } from "../../content/work";
-import { defaultLang, i18nMap, ui } from "../../lang";
+import { contact } from "../../content/work";
+import { defaultLang, ui, type MessageKey } from "../../lang";
+import Header from "../ui/Header.astro";
+import Icon from "../ui/Icon.astro";
 
 const lang = defaultLang;
 const t = ui[lang];
+
+const channelLabel: Record<(typeof contact.channels)[number]["id"], MessageKey> = {
+  linkedin: "work.contact.linkedin",
+  github: "work.contact.github",
+  gmail: "work.contact.gmail",
+} as const;
 ---
 
-<section class="work-section" aria-labelledby="contact-title">
-  <h2 id="contact-title" class="work-section-title font-display" data-i18n="work.contact.title">
-    {t["work.contact.title"]}
-  </h2>
-  <p class="m-0 max-w-[42ch] text-secondary" data-i18n="work.contact.body">
-    {t["work.contact.body"]}
-  </p>
-  <nav
-    class="mt-8 flex flex-wrap items-baseline gap-3 font-display text-2xl uppercase md:mt-10 md:gap-4 md:text-3xl"
-    aria-label="Contact"
-  >
-    {contactLinks.map((link, index) => (
-      <>
-        {index > 0 && (
-          <span class="text-accent-500 opacity-60" aria-hidden="true">/</span>
-        )}
-        <a
-          class="text-accent no-underline transition-opacity duration-150 hover:opacity-70 focus-visible:opacity-70 focus-visible:outline-none"
-          href={link.href}
-          data-i18n-map={i18nMap(link.label)}
-          rel="noreferrer"
-          target="_blank"
-        >
-          {link.label[lang]}
-        </a>
-      </>
-    ))}
-  </nav>
-</section>
+<footer class="contact">
+  <div class="p-8 w-page-shell page-gutter-x mx-auto">
+    <section class="grid grid-cols-2 gap-16">
+      <div>
+        <Header id="contact-title" data-i18n="work.contact.title">
+          {t["work.contact.title"]}
+        </Header>
+        <p class="text-secondary" data-i18n="work.contact.body">
+          {t["work.contact.body"]}
+        </p>
+      </div>
+
+      <div class="grid gap-2">
+        {
+          contact.channels.map((channel) => {
+            const labelKey = channelLabel[channel.id];
+
+            return (
+              <a href={channel.href} class="hover:text-accent transition-colors" rel="noreferrer" target="_blank">
+                <span class="text-sm uppercase text-accent" data-i18n={labelKey}>
+                  {t[labelKey]}
+                </span>
+                <span class="flex items-center gap-2">
+                  <Icon name={channel.id} class="size-3.5 shrink-0" />
+                  <span class="text-sm">{channel.handle}</span>
+                </span>
+              </a>
+            );
+          })
+        }
+      </div>
+    </section>
+  </div>
+</footer>
+
+<style>
+  .contact {
+    position: relative;
+    isolation: isolate;
+    overflow: clip;
+    background-color: var(--color-text);
+    color: var(--color-background);
+  }
+
+  .contact::before {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image: url("/grain.svg");
+    background-size: 160px;
+    opacity: 0.14;
+  }
+</style>

@@ -1,31 +1,25 @@
 ---
-import { Font } from 'astro:assets'
-import I18n from '../components/ui/I18n.astro'
-import Navbar from '../components/ui/Navbar.astro'
-import PageLoader from '../components/ui/PageLoader.astro'
-import { defaultLang, i18nMap, ui, type LocalizedString, type MessageKey } from '../lang'
-import '../styles/global.css'
+import { Font } from "astro:assets";
+import I18n from "../components/ui/I18n.astro";
+import Navbar from "../components/ui/Navbar.astro";
+import PageLoader from "../components/ui/PageLoader.astro";
+import { defaultLang, i18nMap, ui, type LocalizedString, type MessageKey } from "../lang";
+import "../styles/global.css";
 
 type Props = {
-  titleKey?: MessageKey
-  titleMap?: LocalizedString
-  descriptionKey?: MessageKey
-  descriptionMap?: LocalizedString
-  showLoader?: boolean
-}
+  titleKey?: MessageKey;
+  titleMap?: LocalizedString;
+  descriptionKey?: MessageKey;
+  descriptionMap?: LocalizedString;
+  showLoader?: boolean;
+};
 
-const {
-  titleKey,
-  titleMap,
-  descriptionKey,
-  descriptionMap,
-  showLoader = false,
-} = Astro.props
+const { titleKey, titleMap, descriptionKey, descriptionMap, showLoader = false } = Astro.props;
 
-const lang = defaultLang
-const title = titleMap?.[lang] ?? (titleKey ? ui[lang][titleKey] : ui[lang]['site.title'])
-const description = descriptionMap?.[lang] ?? (descriptionKey ? ui[lang][descriptionKey] : undefined)
-const titleI18nKey = titleMap ? undefined : (titleKey ?? 'site.title')
+const lang = defaultLang;
+const title = titleMap?.[lang] ?? (titleKey ? ui[lang][titleKey] : ui[lang]["site.title"]);
+const description = descriptionMap?.[lang] ?? (descriptionKey ? ui[lang][descriptionKey] : undefined);
+const titleI18nKey = titleMap ? undefined : (titleKey ?? "site.title");
 ---
 
 <!doctype html>
@@ -35,27 +29,22 @@ const titleI18nKey = titleMap ? undefined : (titleKey ?? 'site.title')
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
-    <title
-      data-i18n={titleI18nKey}
-      data-i18n-map={titleMap ? i18nMap(titleMap) : undefined}
-    >{title}</title>
-    {description && (
-      <meta
-        name="description"
-        content={description}
-        data-i18n={descriptionKey && !descriptionMap ? descriptionKey : undefined}
-        data-i18n-attr={descriptionKey && !descriptionMap ? 'content' : undefined}
-        data-i18n-map={descriptionMap ? i18nMap(descriptionMap) : undefined}
-        data-i18n-map-attr={descriptionMap ? 'content' : undefined}
-      />
-    )}
+    <title data-i18n={titleI18nKey} data-i18n-map={titleMap ? i18nMap(titleMap) : undefined}>{title}</title>
+    {
+      description && (
+        <meta
+          name="description"
+          content={description}
+          data-i18n={descriptionKey && !descriptionMap ? descriptionKey : undefined}
+          data-i18n-attr={descriptionKey && !descriptionMap ? "content" : undefined}
+          data-i18n-map={descriptionMap ? i18nMap(descriptionMap) : undefined}
+          data-i18n-map-attr={descriptionMap ? "content" : undefined}
+        />
+      )
+    }
     <Font cssVariable="--font-brasika-display" preload />
     <Font cssVariable="--font-sora" />
-    {showLoader && (
-      <script is:inline>
-        document.documentElement.classList.add("is-loading");
-      </script>
-    )}
+    {showLoader && <script is:inline>document.documentElement.classList.add("is-loading");</script>}
   </head>
   <body>
     {showLoader && <PageLoader />}

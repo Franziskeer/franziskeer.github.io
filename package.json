@@ -13,6 +13,8 @@
   },
   "dependencies": {
     "@astrojs/react": "^6.0.4",
+    "@iconify-json/simple-icons": "^1.2.95",
+    "@iconify/utils": "^3.1.7",
     "@react-three/drei": "^10.7.8",
     "@react-three/fiber": "^9.7.0",
     "@tailwindcss/vite": "^4.3.3",

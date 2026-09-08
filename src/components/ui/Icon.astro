@@ -1,0 +1,17 @@
+---
+import { techIcon } from "../../content/skillIcons";
+
+type Props = {
+  name: string;
+  class?: string;
+};
+
+const { name, class: className } = Astro.props;
+const icon = techIcon(name);
+---
+
+{
+  icon && (
+    <svg class={className} viewBox={icon.viewBox} aria-hidden="true" set:html={icon.body} />
+  )
+}
