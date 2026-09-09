@@ -4,12 +4,19 @@
  * Empieza con 7 y 2 ya en su sitio (sin glitch). El resto glitchea
  * y se revela a destiempo. Clic + clic intercambia nodos.
  * En cuanto un número cae en su posición se queda quieto.
- * Al completar el numpad, el padre pasa a la fase 2: el mismo
- * teclado pasa a ser un pinpad de 4 dígitos.
+ * Al completar el numpad, el padre pasa a la fase 2: pinpad.
+ * Cuatro teclas llevan huella; el PIN es una permutación de esas cuatro.
  */
 
-/** Placeholder hasta definir pista y código reales. */
-export const PIN = "1234";
+/** El PIN es el orden; cada dígito lleva tantos puntos UV como su posición. */
+export const PIN = "4836";
+
+const PRINT_POSE = [
+  { x: "26%", y: "16%", rot: "-24deg", size: "78%" },
+  { x: "-22%", y: "6%", rot: "32deg", size: "84%" },
+  { x: "4%", y: "30%", rot: "-38deg", size: "76%" },
+  { x: "22%", y: "-18%", rot: "16deg", size: "80%" },
+] as const;
 
 const SOURCE = [
   { symbol: ">", digit: "1" },
@@ -101,6 +108,37 @@ function createCell(tile: Tile, glitch: boolean) {
     </span>
   `;
   setFace(button, glitch ? tile.symbol : tile.digit);
+  const pinIndex = PIN.indexOf(tile.digit);
+  if (pinIndex !== -1) {
+    button.dataset.print = "";
+    const uv = document.createElement("span");
+    uv.className = "keypad-cell__uv";
+    uv.setAttribute("aria-hidden", "true");
+
+    const print = document.createElement("span");
+    print.className = "keypad-cell__print";
+    const pose = PRINT_POSE[pinIndex] ?? PRINT_POSE[0];
+    print.style.setProperty("--print-x", pose.x);
+    print.style.setProperty("--print-y", pose.y);
+    print.style.setProperty("--print-rot", pose.rot);
+    print.style.setProperty("--print-size", pose.size);
+    const img = document.createElement("img");
+    img.src = "/secret/fingerprint.svg";
+    img.alt = "";
+    img.draggable = false;
+    print.append(img);
+    uv.append(print);
+
+    const marks = document.createElement("span");
+    marks.className = "keypad-cell__marks";
+    for (let i = 0; i < pinIndex + 1; i++) {
+      const mark = document.createElement("span");
+      mark.className = "keypad-cell__mark";
+      marks.append(mark);
+    }
+    uv.append(marks);
+    button.append(uv);
+  }
   return button;
 }
 
