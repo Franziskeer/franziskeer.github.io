@@ -1,6 +1,7 @@
 ---
 import { projects } from "../../content/work";
 import { defaultLang, ui } from "../../lang";
+import "../../styles/projects-carousel.css";
 import Header from "../ui/Header.astro";
 import WorkProjectItem from "./WorkProjectItem.astro";
 
@@ -12,7 +13,7 @@ const t = ui[defaultLang];
     {t["work.projects.title"]}
   </Header>
 
-  <ol class="grid list-none p-0 m-0 space-y-8">
+  <ol class="projects-carousel m-0 list-none p-0">
     {projects.map((project, index) => <WorkProjectItem {...project} index={index} />)}
   </ol>
 </section>

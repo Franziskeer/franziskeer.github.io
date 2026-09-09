@@ -1,0 +1,132 @@
+.projects-carousel {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  anchor-name: --projects-carousel;
+  scroll-marker-group: after;
+}
+
+.projects-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.projects-carousel li {
+  flex: 0 0 85%;
+  min-width: 0;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.projects-carousel::scroll-button(*) {
+  position: absolute;
+  position-anchor: --projects-carousel;
+  top: calc(anchor(bottom) - 1.85rem);
+  z-index: 1;
+  display: grid;
+  width: 1.75rem;
+  height: 1.75rem;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  font-size: 1.25rem;
+  line-height: 1;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.projects-carousel::scroll-button(*):hover,
+.projects-carousel::scroll-button(*):focus-visible {
+  color: var(--color-accent);
+}
+
+.projects-carousel::scroll-button(*):focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 1px var(--color-accent);
+}
+
+.projects-carousel::scroll-button(*):disabled {
+  opacity: 0.25;
+  cursor: default;
+}
+
+.projects-carousel::scroll-button(inline-start) {
+  content: "‹" / "Previous";
+  left: calc(anchor(center) - 3.35rem);
+}
+
+.projects-carousel::scroll-button(inline-end) {
+  content: "›" / "Next";
+  left: calc(anchor(center) + 1.6rem);
+}
+
+.projects-carousel:lang(es)::scroll-button(inline-start) {
+  content: "‹" / "Anterior";
+}
+
+.projects-carousel:lang(es)::scroll-button(inline-end) {
+  content: "›" / "Siguiente";
+}
+
+.projects-carousel::scroll-marker-group {
+  position: absolute;
+  position-anchor: --projects-carousel;
+  top: calc(anchor(bottom) - 1.2rem);
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  justify-self: anchor-center;
+}
+
+.projects-carousel li::scroll-marker {
+  content: "" / attr(data-acc-name);
+  width: 0.45rem;
+  height: 0.45rem;
+  border: 1px solid var(--color-accent);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.projects-carousel li::scroll-marker:target-current {
+  background: var(--color-accent);
+}
+
+@supports (scroll-marker-group: after) {
+  .projects-carousel {
+    padding-block-end: 2.35rem;
+  }
+}
+
+@media (width >= 80rem) {
+  .projects-carousel {
+    display: grid;
+    gap: 2rem;
+    overflow: visible;
+    padding-block-end: 0;
+    scroll-snap-type: none;
+    scroll-marker-group: none;
+  }
+
+  .projects-carousel li {
+    flex: none;
+    scroll-snap-align: none;
+    scroll-snap-stop: normal;
+  }
+
+  .projects-carousel::scroll-button(*) {
+    content: none;
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .projects-carousel {
+    scroll-behavior: auto;
+  }
+}
