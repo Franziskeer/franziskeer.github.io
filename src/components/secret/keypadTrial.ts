@@ -4,8 +4,13 @@
  * Empieza con 7 y 2 ya en su sitio (sin glitch). El resto glitchea
  * y se revela a destiempo. Clic + clic intercambia nodos.
  * En cuanto un número cae en su posición se queda quieto.
- * Al completar el numpad, el padre pasa a la fase 2.
+ * Al completar el numpad, el padre pasa a la fase 2: el mismo
+ * teclado pasa a ser un pinpad de 4 dígitos.
  */
+
+/** Placeholder hasta definir pista y código reales. */
+export const PIN = "1234";
+
 const SOURCE = [
   { symbol: ">", digit: "1" },
   { symbol: "!", digit: "2" },
@@ -101,6 +106,7 @@ function createCell(tile: Tile, glitch: boolean) {
 
 type Options = {
   settled?: boolean;
+  pinSlots?: HTMLElement;
 };
 
 export function mountKeypad(root: HTMLElement, onSolved: () => void, options: Options = {}) {
@@ -108,6 +114,8 @@ export function mountKeypad(root: HTMLElement, onSolved: () => void, options: Op
   let done = options.settled ?? false;
   let cancelled = false;
   const timers: number[] = [];
+  const pinTimers: number[] = [];
+  let stopPin: (() => void) | undefined;
 
   const later = (ms: number, fn: () => void) => {
     const id = window.setTimeout(() => {
@@ -170,8 +178,108 @@ export function mountKeypad(root: HTMLElement, onSolved: () => void, options: Op
     lockCorrect();
     if (isSolved(cells())) {
       settle();
-      window.setTimeout(onSolved, 400);
+      const id = window.setTimeout(() => {
+        onSolved();
+        armPin();
+      }, 400);
+      pinTimers.push(id);
     }
+  };
+
+  const pinLater = (ms: number, fn: () => void) => {
+    const id = window.setTimeout(fn, ms);
+    pinTimers.push(id);
+  };
+
+  const armPin = () => {
+    const slots = options.pinSlots;
+    if (!slots) return;
+
+    stopPin?.();
+    let entry = "";
+    let locked = false;
+    let busy = false;
+
+    const paintSlots = () => {
+      [...slots.children].forEach((slot, index) => {
+        if (!(slot instanceof HTMLElement)) return;
+        slot.toggleAttribute("data-filled", index < entry.length);
+      });
+    };
+
+    const flashKey = (digit: string) => {
+      const button = cells().find((cell) => cell.dataset.digit === digit);
+      if (!button) return;
+      button.dataset.press = "";
+      pinLater(140, () => button.removeAttribute("data-press"));
+    };
+
+    const clearVerdict = () => {
+      delete root.dataset.no;
+      delete root.dataset.ok;
+      delete slots.dataset.no;
+      delete slots.dataset.ok;
+    };
+
+    const press = (digit: string) => {
+      if (locked || busy || entry.length >= 4) return;
+      entry += digit;
+      paintSlots();
+      flashKey(digit);
+      if (entry.length < 4) return;
+
+      busy = true;
+      if (entry === PIN) {
+        locked = true;
+        root.dataset.ok = "";
+        slots.dataset.ok = "";
+        return;
+      }
+
+      root.dataset.no = "";
+      slots.dataset.no = "";
+      pinLater(620, () => {
+        entry = "";
+        paintSlots();
+        clearVerdict();
+        busy = false;
+      });
+    };
+
+    const onPinClick = (event: Event) => {
+      const button = event.currentTarget;
+      if (!(button instanceof HTMLButtonElement)) return;
+      const digit = button.dataset.digit;
+      if (digit) press(digit);
+    };
+
+    const onKey = (event: KeyboardEvent) => {
+      if (event.repeat || event.metaKey || event.ctrlKey || event.altKey) return;
+      if (!/^[1-9]$/.test(event.key)) return;
+      event.preventDefault();
+      press(event.key);
+    };
+
+    root.dataset.pin = "";
+    for (const button of cells()) {
+      button.disabled = false;
+      button.addEventListener("click", onPinClick);
+    }
+    window.addEventListener("keydown", onKey);
+    paintSlots();
+
+    stopPin = () => {
+      window.removeEventListener("keydown", onKey);
+      for (const button of cells()) {
+        button.removeEventListener("click", onPinClick);
+      }
+      for (const id of pinTimers) window.clearTimeout(id);
+      pinTimers.length = 0;
+      entry = "";
+      paintSlots();
+      clearVerdict();
+      delete root.dataset.pin;
+    };
   };
 
   const tiles = done ? ordered() : shuffle();
@@ -202,13 +310,19 @@ export function mountKeypad(root: HTMLElement, onSolved: () => void, options: Op
   });
 
   root.replaceChildren(...buttons);
-  if (done) root.dataset.solved = "";
+  if (done) {
+    root.dataset.solved = "";
+    armPin();
+  }
 
   return () => {
     cancelled = true;
     done = true;
+    stopPin?.();
     for (const id of timers) window.clearTimeout(id);
+    for (const id of pinTimers) window.clearTimeout(id);
     root.replaceChildren();
     delete root.dataset.solved;
+    delete root.dataset.pin;
   };
 }

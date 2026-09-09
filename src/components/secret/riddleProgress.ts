@@ -3,7 +3,7 @@
  *
  *   1 → 2
  *
- * Al resolver la 1 el teclado se queda ordenado (sin glitch) y el HUD pasa a 02.
+ * Al resolver la 1 el teclado se queda ordenado y pasa a pinpad (fase 2).
  * Atajo: `?stage=2`. Reset: `?stage=1`.
  */
 export const RIDDLE_STAGES = ["1", "2"] as const;
