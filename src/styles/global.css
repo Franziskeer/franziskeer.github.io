@@ -87,8 +87,8 @@
 }
 
 @utility bg-dotted {
-  background-image: radial-gradient(#0F0F0F55 1px, transparent 2px);
-  background-size: 64px 64px;
+  background-image: radial-gradient(#0f0f0f25 1px, transparent 2px);
+  background-size: 72px 72px;
 }
 
 @utility grain-shift {
@@ -223,6 +223,7 @@ html {
 body {
   margin: 0;
   padding: 0;
+  min-height: 100dvh;
   font-family: var(--font-sans);
   font-size: var(--text-base);
 }

@@ -46,7 +46,7 @@ const titleI18nKey = titleMap ? undefined : (titleKey ?? "site.title");
     <Font cssVariable="--font-sora" />
     {showLoader && <script is:inline>document.documentElement.classList.add("is-loading");</script>}
   </head>
-  <body>
+  <body class="bg-dotted">
     {showLoader && <PageLoader />}
     <Navbar />
     <slot />
