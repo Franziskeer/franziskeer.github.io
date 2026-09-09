@@ -1,0 +1,110 @@
+---
+import { focus, lead, portrait } from "../../content/about";
+import { defaultLang, i18nMap, ui } from "../../lang";
+import Header from "../ui/Header.astro";
+import Icon from "../ui/Icon.astro";
+
+const lang = defaultLang;
+const t = ui[lang];
+---
+
+<section class="space-y-4 md:space-y-8">
+  <div>
+    <Header data-i18n="about.title">
+      {t["about.title"]}
+    </Header>
+    <p class="text-xs font-semibold uppercase text-accent" data-i18n="about.kicker">
+      {t["about.kicker"]}
+    </p>
+  </div>
+
+  <div class="grid items-start gap-4 xl:gap-16 md:grid-cols-[20rem_1fr]">
+    <div>
+      <img
+        src={portrait.src}
+        alt={portrait.imageAlt[lang]}
+        data-i18n-map-attr="alt"
+        data-i18n-map={i18nMap(portrait.imageAlt)}
+        class="w-full object-contain"
+        loading="eager"
+        decoding="async"
+      />
+    </div>
+
+    <div class="space-y-4">
+      {
+        lead.map((paragraph) => (
+          <p class="text-sm leading-relaxed text-secondary" data-i18n-map={i18nMap(paragraph)}>
+            {paragraph[lang]}
+          </p>
+        ))
+      }
+
+      <hr class="border-black/20" />
+
+      <div class="grid gap-5">
+        <p class="text-xs font-semibold uppercase text-accent" data-i18n="about.focusLabel">
+          {t["about.focusLabel"]}
+        </p>
+        <ul class="flex flex-wrap m-0 list-none gap-4 p-0 md:grid-cols-3 md:gap-8">
+          {
+            focus.map((item) => (
+              <li class="flex items-center gap-2 text-accent">
+                <Icon name={item.icon} class="size-4 shrink-0" />
+                <h2 class="m-0 font-display text-base uppercase leading-none text-primary" data-i18n-map={i18nMap(item.title)}>
+                  {item.title[lang]}
+                </h2>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-portrait {
+    position: relative;
+    overflow: clip;
+    isolation: isolate;
+  }
+
+  .about-portrait-disc {
+    position: absolute;
+    inset: 12% 6% 6%;
+    z-index: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, var(--color-accent-100), var(--color-accent-200) 45%, transparent 70%);
+  }
+
+  .about-portrait-ring {
+    position: absolute;
+    inset: 6% 0 14%;
+    z-index: 0;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-accent-400);
+    opacity: 0.55;
+    transform: rotate(-8deg);
+  }
+
+  .about-portrait-grain {
+    position: absolute;
+    inset: 14% 8% 8%;
+    z-index: 0;
+    border-radius: 50%;
+    opacity: 0.22;
+    background-image: url("/grain.svg");
+    background-size: 160px;
+    background-repeat: repeat;
+    pointer-events: none;
+  }
+
+  .about-portrait-img {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    filter: drop-shadow(0 16px 28px rgb(4 4 4 / 0.16));
+  }
+</style>

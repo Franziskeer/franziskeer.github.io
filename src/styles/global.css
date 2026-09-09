@@ -50,6 +50,7 @@
 @utility page-shell {
   width: 100%;
   max-width: var(--width-page-shell);
+  min-height: 78dvh;
   margin-inline: auto;
   padding-inline: var(--spacing-page-gutter-x);
   /* Clears the fixed nav (padding-block + logo) plus a bit of air. */
