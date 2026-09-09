@@ -1,6 +1,8 @@
 .projects-carousel {
   display: flex;
   gap: 1rem;
+  min-width: 0;
+  max-width: 100%;
   overflow-x: auto;
   overscroll-behavior-x: contain;
   scroll-snap-type: x mandatory;
@@ -16,10 +18,26 @@
 }
 
 .projects-carousel li {
+  display: flex;
   flex: 0 0 85%;
   min-width: 0;
-  scroll-snap-align: start;
+  scroll-snap-align: center;
   scroll-snap-stop: always;
+}
+
+.projects-carousel li > a {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  flex: 1;
+  width: 100%;
+}
+
+.projects-carousel li:first-child {
+  scroll-snap-align: start;
+}
+
+.projects-carousel li:last-child:not(:first-child) {
+  scroll-snap-align: end;
 }
 
 .projects-carousel::scroll-button(*) {
@@ -114,9 +132,14 @@
   }
 
   .projects-carousel li {
+    display: block;
     flex: none;
     scroll-snap-align: none;
     scroll-snap-stop: normal;
+  }
+
+  .projects-carousel li > a {
+    grid-template-rows: none;
   }
 
   .projects-carousel::scroll-button(*) {

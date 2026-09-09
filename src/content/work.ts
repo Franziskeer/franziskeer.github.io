@@ -44,6 +44,38 @@ export function getNextProject(id: string) {
 
 export const projects = [
   {
+    id: "portfolio",
+    title: {
+      en: "This Portfolio",
+      es: "Este Portafolio",
+    },
+    stack: ["Astro", "React", "Three.js", "Tailwind CSS", "TypeScript"],
+    summary: {
+      en: "The site you are on. A personal portfolio built to feel handmade, not generated. Type, ink, and a bit of 3D.",
+      es: "La web en la que estás. Un portfolio personal hecho para que se sienta hecho a mano, no generado. Tipografía, tinta y un poco de 3D.",
+    },
+    sections: {
+      problem: {
+        en: "Developer portfolios tend to look like the same template. I wanted a site I would actually share. A site that represents me.",
+        es: "Los portfolios de desarrollador suelen parecer la misma plantilla. Quería una web que de verdad me gustaría compartir. Un sitio que me represente.",
+      },
+      approach: {
+        en: "Astro for the pages. React and Three.js for the ink and the spheres. Native HTML and CSS when that was enough and TailwindCSS for the rest.",
+        es: "Astro para las páginas. React y Three.js para la tinta y las esferas. HTML y CSS nativos cuando era necesario y TailwindCSS para el resto.",
+      },
+      outcome: {
+        en: "A site I keep working on. Selected work, a bit about me, and sharing my projects and experiences with the community.",
+        es: "Una web en la que sigo trabajando. Trabajo seleccionado, un poco sobre mí, y compartir mis proyectos y experiencias con la comunidad.",
+      },
+    },
+    image: "/work/portfolio.png",
+    imageAlt: {
+      en: "Homepage of the portfolio. Serif headline, orange links, and black ink shapes.",
+      es: "Página de inicio del portfolio. Titular en serif, enlaces naranja y formas de tinta negra.",
+    },
+    github: "https://github.com/Franziskeer/franziskeer.github.io",
+  },
+  {
     id: "finance-tracker-mobile",
     title: {
       en: "Expense Tracker",
