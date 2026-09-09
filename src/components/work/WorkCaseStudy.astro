@@ -3,6 +3,7 @@ import { projectPath, type WorkProject } from "../../content/work";
 import { defaultLang, i18nMap, ui } from "../../lang";
 import Badge from "../ui/Badge.astro";
 import Icon from "../ui/Icon.astro";
+import SecretBadge from "./SecretBadge.astro";
 import WorkMedia from "./WorkMedia.astro";
 
 type Props = {
@@ -34,6 +35,7 @@ const { title, stack, sections, links, github, image, imageAlt } = project;
             {stack.map((tech) => (
               <Badge tech={tech}>{tech}</Badge>
             ))}
+            {project.id === "portfolio" && <SecretBadge />}
           </div>
         )}
         {(github || (links && links.length > 0)) && (

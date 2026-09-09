@@ -81,7 +81,7 @@ export const projects = [
       en: "Expense Tracker",
       es: "Control de gastos",
     },
-    stack: ["React Native", "TypeScript", "Tailwind CSS", "Expo", "Firestore"],
+    stack: ["React Native", "TypeScript", "Expo", "Firestore"],
     summary: {
       en: "An app for shared household expenses. Back from the shops, log it in 5 seconds. At month's end you take stock. Nothing more.",
       es: "App para los gastos compartidos de casa. Sales de la compra, lo anotas en 5 segundos. A fin de mes haces balance. Ni más ni menos.",

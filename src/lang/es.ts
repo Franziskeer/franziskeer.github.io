@@ -30,6 +30,8 @@ const es = {
   'work.case.back': 'Volver a proyectos',
   'work.case.next': 'Siguiente',
   'work.case.github': 'Ver en GitHub',
+  'work.case.secret': 'missingNo',
+  'secret.pageTitle': 'Secreto',
 } as const
 
 export default es

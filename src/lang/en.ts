@@ -30,6 +30,8 @@ const en = {
   'work.case.back': 'Back to projects',
   'work.case.next': 'Next',
   'work.case.github': 'View on GitHub',
+  'work.case.secret': 'missingNo',
+  'secret.pageTitle': 'Secret',
 } as const
 
 export default en
